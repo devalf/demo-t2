@@ -1,7 +1,12 @@
+@import './reset';
+
 $primary-color: #dddddd;
 $bg: #333333;
+
+$base-font: 16px;
 
 body {
   color: $primary-color;
   background-color: $bg;
+  font-size: $base-font;
 }
