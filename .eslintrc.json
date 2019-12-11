@@ -1,0 +1,49 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "google"
+  ],
+  "rules": {
+    "indent": ["error", 4],
+    "linebreak-style": ["error", "unix"],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "max-len": ["error", {"code": 120}],
+    "no-invalid-this": 0,
+    "require-jsdoc": 0,
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+    "space-in-parens": ["error", "never"],
+    "comma-dangle": ["error", "never"],
+    "operator-linebreak": ["error", "before"],
+    "new-cap": ["error", {"properties": false, "capIsNewExceptions": ["URLParamsToAction"]}],
+    "camelcase": 0,
+    "eqeqeq": ["error", "always"],
+    "newline-before-return": "error",
+    "no-console": 2
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
