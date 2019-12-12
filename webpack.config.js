@@ -8,7 +8,7 @@ const config = {
         './src/client/index.jsx'
     ],
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js'
     },
     module: {
