@@ -1,4 +1,7 @@
 @import './reset';
+@import './variables';
+
+@import './vendor/mapbox-gl.css';
 
 $primary-color: #dddddd;
 $bg: #333333;
