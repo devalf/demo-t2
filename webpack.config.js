@@ -19,10 +19,38 @@ const config = {
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
+                test: /([\\/])styles\.(s)?css$/,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[name]__[local]___[hash:base64:5]'
+                            },
+                            sourceMap: true
+                        }
+                    },
+                    'sass-loader'
+                ]
+            },
+            {
+                test: {include: /\.css$/, exclude: /([\\/])styles\.css$/},
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: {include: /\.scss$/, exclude: /([\\/])styles\.scss$/},
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
                     'sass-loader'
                 ]
             },
@@ -50,7 +78,8 @@ const config = {
         ],
         alias: {
             'react-dom': '@hot-loader/react-dom',
-            'components': path.resolve(__dirname, 'src/client/components')
+            'components': path.resolve(__dirname, 'src/client/components'),
+            'configs': path.resolve(__dirname, 'src/configs')
         }
     },
     devServer: {
