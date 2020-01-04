@@ -5,7 +5,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const config = {
     entry: [
         'react-hot-loader/patch',
-        './src/client/index.jsx'
+        './src/index.jsx'
     ],
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -78,12 +78,14 @@ const config = {
         ],
         alias: {
             'react-dom': '@hot-loader/react-dom',
-            'components': path.resolve(__dirname, 'src/client/components'),
-            'configs': path.resolve(__dirname, 'src/configs')
+            'components': path.resolve(__dirname, 'src/components'),
+            'configs': path.resolve(__dirname, '../configs')
         }
     },
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        host: '0.0.0.0',
+        port: 8080
     },
     plugins: [
         new LodashModuleReplacementPlugin,

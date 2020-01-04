@@ -3,10 +3,14 @@ const app = express();
 const http = require('http').Server(app);
 const path = require('path');
 
-app.use(express.static(path.join(__dirname + '../../../' + 'public')));
+// app.use(express.static(path.join(__dirname + '../../../client' + '/public')));
+//
+// app.use('/', (req, res) => {
+//     res.sendFile(path.join(__dirname + '../../../client' + '/dist/index.html'));
+// });
 
 app.use('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '../../../' + '/dist/index.html'));
+    res.send('response');
 });
 
 http.listen('8081', function() {
