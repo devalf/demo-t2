@@ -1,0 +1,15 @@
+{
+  "name": "server-side",
+  "version": "1.0.0",
+  "description": "Demo project - server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npx nodemon src/index.js"
+  },
+  "author": "Oleksiy Petrychko",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}

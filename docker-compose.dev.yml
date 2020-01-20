@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  client:
+    container_name: client_dev
+    build:
+      context: ./src/client
+      dockerfile: Dockerfile.dev
+    image: devalf/client_dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/client:/usr/src/client-app
+      - /usr/src/client-app/node_modules
+
+  server:
+    container_name: server_dev
+    build:
+      context: ./src/server
+      dockerfile: Dockerfile
+    image: devalf/server_dev
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./src/server:/usr/src/server-app
+      - /usr/src/server-app/node_modules

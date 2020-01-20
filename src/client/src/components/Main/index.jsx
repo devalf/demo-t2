@@ -6,7 +6,7 @@ class Main extends Component {
     render() {
         return (
             <div className={styles.container}>
-                Hello world
+                Hello World - client-side!
             </div>
         );
     }
