@@ -19,3 +19,15 @@ to stop container
 
 to remove unused data
 ```docker system prune```
+
+docker compose build
+```docker-compose -f docker-compose.dev.yml build```
+
+docker compose run
+```docker-compose -f docker-compose.dev.yml up```
+
+docker compose build & run
+```docker-compose -f docker-compose.dev.yml up --build```
+
+docker compose stop
+```docker-compose -f docker-compose.dev.yml stop```

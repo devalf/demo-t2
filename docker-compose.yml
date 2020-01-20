@@ -1,8 +1,0 @@
-version: "1"
-services:
-  client:
-    container_name: frontend
-    build:
-      context: ./src/client
-      dockerfile: Dockerfile
-    image:

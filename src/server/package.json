@@ -4,10 +4,7 @@
   "description": "Demo project - server",
   "main": "src/index.js",
   "scripts": {
-    "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development",
-    "build-prod": "webpack -p --mode production",
-    "start": "node src/index.js",
+    "start": "npx nodemon src/index.js",
     "lint:js": "eslint --ext .js --ext .jsx src",
     "lint:js-fix": "eslint --ext .js --ext .jsx src --fix"
   },
@@ -21,6 +18,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "nodemon": "^2.0.2"
   }
 }
