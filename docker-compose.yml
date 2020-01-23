@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  client:
+    container_name: client
+    build:
+      context: ./src/client
+      dockerfile: Dockerfile
+    image: devalf/client
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src/client:/usr/src/client-app
+      - /usr/src/client-app/node_modules
+
+  server:
+    container_name: server
+    build:
+      context: ./src/server
+      dockerfile: Dockerfile
+    image: devalf/server
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./src/server:/usr/src/server-app
+      - /usr/src/server-app/node_modules
+    environment:
+      - NODE_ENV=production
