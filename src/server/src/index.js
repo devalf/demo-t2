@@ -3,11 +3,14 @@ const app = express();
 const http = require('http').Server(app);
 const cors = require('cors');
 
-app.use(cors());
+const indexRouter = require('./routes/index');
+const apiRouter = require('./routes/api');
 
-app.get('/', (req, res) => {
-    res.send('Hello World - server-side!');
-});
+app.use(cors());
+app.use(express.json());
+
+app.use('/', indexRouter);
+app.use('/api/', apiRouter);
 
 http.listen('8081', function() {
     // eslint-disable-next-line no-console
