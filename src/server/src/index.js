@@ -7,6 +7,7 @@ const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const apiResponse = require('./helpers/apiResponse');
 
+const MONGODB_URL = process.env.MONGODB_URL;
 
 app.use(cors());
 app.use(express.json());
