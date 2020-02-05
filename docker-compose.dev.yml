@@ -32,7 +32,7 @@ services:
       - MONGODB_URL=mongodb://mongo-db:27017/demo-t2
 
   mongo-db:
-    container_name: mongo_db
+    container_name: mongo_dev
     image: mongo:4.2
     restart: always
     environment:
@@ -40,7 +40,25 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=1234
       - MONGO_INITDB_DATABASE=demo-t2
     ports:
-      - '27017-27019:27017-27019'
+      - '27017:27017'
     volumes:
       - ./src/mongo-db/scripts/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./src/mongo-db/data/db:/data/db
+    networks:
+      - dev
+
+  mongo-seed:
+    container_name: mongo_seed
+    build:
+      context: ./src/mongo-seed
+      dockerfile: Dockerfile.dev
+    image: devalf/mongo_seed_dev
+    networks:
+      - dev
+    depends_on:
+      - mongo-db
+
+networks:
+  dev:
+    name: dev
+    driver: bridge
