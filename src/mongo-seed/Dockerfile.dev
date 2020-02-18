@@ -1,5 +1,0 @@
-FROM mongo:4.2
-
-COPY goods.json /goods.json
-
-CMD mongoimport --host mongo-db --db demo-t2 --collection goods --drop --type json --file /goods.json --jsonArray
