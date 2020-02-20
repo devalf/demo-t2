@@ -33,7 +33,9 @@ services:
 
   mongo-db:
     container_name: mongo_dev
-    image: mongo:4.2
+    build:
+      context: ./src/mongo-db
+      dockerfile: Dockerfile
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: alex
@@ -42,5 +44,4 @@ services:
     ports:
       - 27017:27017
     volumes:
-#      - ./src/mongo-db/scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
       - ./src/mongo-db/data/db:/data/db
