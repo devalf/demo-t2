@@ -299,5 +299,5 @@ const goods = [
     }
 ];
 
-db.test.drop();
-db.test.insertMany(goods);
+db.goods.drop();
+db.goods.insertMany(goods);

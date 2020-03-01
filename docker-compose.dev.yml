@@ -42,6 +42,6 @@ services:
     ports:
       - 27017:27017
     volumes:
-#      - ./src/mongo-db/data/db:/data/db
+      - ./src/mongo-db/data/db:/data/db
       - ./src/mongo-db/scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
       - ./src/mongo-db/scripts/goods.js:/docker-entrypoint-initdb.d/goods.js
