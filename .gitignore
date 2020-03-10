@@ -6,3 +6,5 @@ src/server/node_modules
 
 src/client/public
 src/mongo-db/data
+
+.env

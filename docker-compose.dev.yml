@@ -36,12 +36,16 @@ services:
     image: mongo:4.2
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: alex
-      MONGO_INITDB_ROOT_PASSWORD: 1234
-      MONGO_INITDB_DATABASE: demo-t2
+      MONGO_INITDB_ROOT_USERNAME: ${DB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+      MONGO_DB_USERNAME: ${DB_USERNAME}
+      MONGO_DB_PASSWORD: ${DB_PASSWORD}
     ports:
       - 27017:27017
     volumes:
-      - ./src/mongo-db/data/db:/data/db
-      - ./src/mongo-db/scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+#      - ./src/mongo-db/data/db:/data/db
+#      - ./src/mongo-db/scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./src/mongo-db/scripts/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
       - ./src/mongo-db/scripts/goods.js:/docker-entrypoint-initdb.d/goods.js
+#    command: echo ${DB_PASSWORD}
