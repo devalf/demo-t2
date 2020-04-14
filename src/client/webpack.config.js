@@ -79,6 +79,7 @@ const config = {
         alias: {
             'react-dom': '@hot-loader/react-dom',
             'components': path.resolve(__dirname, 'src/components'),
+            'utils': path.resolve(__dirname, 'src/utils'),
             'configs': path.resolve(__dirname, '../configs')
         }
     },
