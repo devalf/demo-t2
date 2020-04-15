@@ -4,8 +4,8 @@
   "description": "Demo project - server",
   "main": "src/index.js",
   "scripts": {
-    "lint:js": "eslint --ext .js --ext .jsx src",
-    "lint:js-fix": "eslint --ext .js --ext .jsx src --fix"
+    "lint:js": "eslint --ext .js --ext .jsx --ext .mjs src",
+    "lint:js-fix": "eslint --ext .js --ext .jsx --ext .mjs src --fix"
   },
   "author": "Oleksiy Petrychko",
   "license": "MIT",

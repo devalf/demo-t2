@@ -46,4 +46,4 @@ services:
     volumes:
       - ./src/mongo-db/data/db:/data/db
       - ./src/mongo-db/scripts/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
-      - ./src/mongo-db/scripts/goods.js:/docker-entrypoint-initdb.d/goods.js
+      - ./src/mongo-db/scripts/products.js:/docker-entrypoint-initdb.d/products.js

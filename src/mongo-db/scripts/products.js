@@ -1,6 +1,7 @@
-const goods = [
+const products = [
     {
         'guid': '076759d0-5af3-4819-a72d-ffe120212f55',
+        'title': 'Lorem',
         'picture': 'http://placehold.it/132x132',
         'company': 'ENJOLA',
         'about': 'Proident consectetur fugiat occaecat cupidatat laborum esse in laborum '
@@ -23,6 +24,7 @@ const goods = [
     },
     {
         'guid': '24cba56d-c267-4a87-8cb9-31d98e7b9e5c',
+        'title': 'Ipsum',
         'picture': 'http://placehold.it/132x132',
         'company': 'RECOGNIA',
         'about': 'Eu deserunt anim quis officia labore tempor velit quis. Labore fugiat amet magna'
@@ -42,6 +44,7 @@ const goods = [
     },
     {
         'guid': '3dcc7cec-d2b8-49a8-81bc-8c05583024fc',
+        'title': 'Dolor',
         'picture': 'http://placehold.it/132x132',
         'company': 'ECRATER',
         'about': 'Nostrud voluptate tempor culpa eu. Amet ut occaecat exercitation irure nisi eu '
@@ -60,6 +63,7 @@ const goods = [
     },
     {
         'guid': '77a65ed2-3a9e-41bb-bb82-032406f560a5',
+        'title': 'Sit',
         'picture': 'http://placehold.it/132x132',
         'company': 'ORBIN',
         'about': 'Sunt amet magna qui dolore. Dolore consequat aute ullamco cillum est sit sit '
@@ -78,6 +82,7 @@ const goods = [
     },
     {
         'guid': '713bb9b8-18bb-482b-a3b9-4f7759052078',
+        'title': 'Amet',
         'picture': 'http://placehold.it/132x132',
         'company': 'KIOSK',
         'about': 'Dolore sunt esse incididunt excepteur occaecat. In non est laborum incididunt'
@@ -97,6 +102,7 @@ const goods = [
     },
     {
         'guid': '81fecfd8-7848-4b32-bf3a-fa6d7c9e77ba',
+        'title': 'Consectetur',
         'picture': 'http://placehold.it/132x132',
         'company': 'SHADEASE',
         'about': 'Quis occaecat adipisicing anim dolore Lorem culpa. Ad excepteur enim '
@@ -117,6 +123,7 @@ const goods = [
     },
     {
         'guid': '1313a45a-d47a-4c0b-b4f7-7fbf2b025551',
+        'title': 'Adipisicing',
         'picture': 'http://placehold.it/132x132',
         'company': 'IDEGO',
         'about': 'Ex nisi et qui dolor irure nisi duis mollit eiusmod aliqua nostrud. Velit anim '
@@ -136,6 +143,7 @@ const goods = [
     },
     {
         'guid': '827f1c57-eb5b-4337-ace2-c85cade25a8d',
+        'title': 'Elit',
         'picture': 'http://placehold.it/132x132',
         'company': 'ZOUNDS',
         'about': 'Sit cillum culpa proident non ipsum consequat anim laborum enim Lorem. '
@@ -156,6 +164,7 @@ const goods = [
     },
     {
         'guid': '6d1ed806-7224-4a77-abda-d2d1fc588912',
+        'title': 'Adipisci',
         'picture': 'http://placehold.it/132x132',
         'company': 'INVENTURE',
         'about': 'Et ipsum irure consequat sint adipisicing minim nostrud irure ullamco officia'
@@ -177,6 +186,7 @@ const goods = [
     },
     {
         'guid': 'cef1a4f4-13aa-4adc-a528-2b79955b26b0',
+        'title': 'Dignissimos',
         'picture': 'http://placehold.it/132x132',
         'company': 'GEOSTELE',
         'about': 'Ut voluptate adipisicing enim et ipsum dolor adipisicing proident proident velit culpa '
@@ -198,6 +208,7 @@ const goods = [
     },
     {
         'guid': '58ca323e-2568-494f-872e-2ce4c3991dda',
+        'title': 'Doloremque',
         'picture': 'http://placehold.it/132x132',
         'company': 'OCEANICA',
         'about': 'Laborum elit dolore cillum dolor esse ex exercitation. Nisi non reprehenderit adipisicing'
@@ -219,6 +230,7 @@ const goods = [
     },
     {
         'guid': 'dbdd4f8c-74cc-4115-ad2d-52b07adeee86',
+        'title': 'Eos',
         'picture': 'http://placehold.it/132x132',
         'company': 'GRUPOLI',
         'about': 'Id irure in proident labore ad magna minim velit irure sint reprehenderit duis sint eiusmod.'
@@ -239,6 +251,7 @@ const goods = [
     },
     {
         'guid': '846ef953-50ac-4a67-869e-694cea355801',
+        'title': 'Maxime',
         'picture': 'http://placehold.it/132x132',
         'company': 'RADIANTIX',
         'about': 'Laboris ex culpa elit cillum reprehenderit amet sit. Veniam non excepteur tempor Lorem '
@@ -259,6 +272,7 @@ const goods = [
     },
     {
         'guid': '2a6cffe0-ef3b-484d-b2bb-7ba1e4490ad8',
+        'title': 'Praesentium',
         'picture': 'http://placehold.it/132x132',
         'company': 'BILLMED',
         'about': 'Consequat qui laboris aliquip qui. Ipsum nostrud magna eiusmod reprehenderit minim'
@@ -277,6 +291,7 @@ const goods = [
     },
     {
         'guid': 'f6cdc540-ba84-4b74-85ef-d0db069d92fa',
+        'title': 'Repellat',
         'picture': 'http://placehold.it/132x132',
         'company': 'GOGOL',
         'about': 'Nulla id laborum officia tempor duis nisi. Sint tempor ex irure ipsum esse aliquip '
@@ -299,5 +314,5 @@ const goods = [
     }
 ];
 
-db.goods.drop();
-db.goods.insertMany(goods);
+db.products.drop();
+db.products.insertMany(products);

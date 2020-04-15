@@ -1,16 +1,22 @@
 {
-  "name": "server-side",
+  "name": "demossd",
   "version": "1.0.0",
   "description": "Demo project - server",
-  "main": "src/index.js",
+  "main": "src/index.mjs",
   "scripts": {
-    "start": "npx nodemon src/index.js"
+    "start": "npx nodemon src/index.mjs"
   },
   "author": "Oleksiy Petrychko",
   "license": "MIT",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./apiResponse": "./src/helpers/apiResponse.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mongoose": "^5.9.9",
     "nodemon": "^2.0.2"
-  }
+  },
+  "type": "module"
 }

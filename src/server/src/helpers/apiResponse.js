@@ -1,4 +1,4 @@
-exports.notFoundResponse = function(res, msg) {
+export const notFoundResponse = function(res, msg) {
     const data = {
         status: 0,
         message: msg
