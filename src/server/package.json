@@ -10,7 +10,7 @@
   "license": "MIT",
   "exports": {
     ".": "./src/index.mjs",
-    "./apiResponse": "./src/helpers/apiResponse.js"
+    "./apiResponse": "./src/helpers/apiResponse.mjs"
   },
   "dependencies": {
     "cors": "^2.8.5",

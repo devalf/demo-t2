@@ -1,10 +1,10 @@
 import express from 'express';
 
+import {allProductsList} from '../../../controllers/ProductsController.mjs';
+
 const products = express.Router();
 
-products.get('/all', (req, res) => {
-    res.json({a: 6});
-});
+products.get('/all', allProductsList);
 
 export {
     products
