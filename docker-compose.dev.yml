@@ -30,6 +30,8 @@ services:
       - mongo-db
     environment:
       - MONGODB_URL=mongodb://mongo-db:27017/demo-t2
+      - MONGO_DB_USERNAME=${DB_USERNAME}
+      - MONGO_DB_PASSWORD=${DB_PASSWORD}
 
   mongo-db:
     container_name: mongo_dev

@@ -1,5 +1,5 @@
-// import Product from '../models/ProductModel';
-import {errorResponse} from '../helpers/apiResponse.mjs';
+import Product from '../models/ProductModel.mjs';
+import {errorResponse, successResponseWithData} from '../helpers/apiResponse.mjs';
 
 function ProductData(data) {
     this.id = data._id;
@@ -14,13 +14,13 @@ function ProductData(data) {
 }
 
 export const allProductsList = [
-    (req, res) => {
+    async (req, res) => {
         try {
-            // Product.find();
+            const products = await Product.find({});
 
-            throw new Error('custom generated error');
+            successResponseWithData(res, products);
         } catch (e) {
-            return errorResponse(res, e.message);
+            return errorResponse(res, e);
         }
     }
 ];
