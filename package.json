@@ -1,7 +1,7 @@
 {
-  "name": "server-side",
+  "name": "demo",
   "version": "1.0.0",
-  "description": "Demo project - server",
+  "description": "Demo project",
   "main": "src/index.js",
   "scripts": {
     "lint:js": "eslint --ext .js --ext .jsx --ext .mjs src",
