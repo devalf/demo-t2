@@ -25,3 +25,13 @@ export const successResponseWithData = (res, data, message) => {
 
     return res.status(200).json(resData);
 };
+
+export const validationErrorWithData = (res, message='Bad request', data) => {
+    const resData = {
+        status: 0,
+        message,
+        data
+    };
+
+    return res.status(400).json(resData);
+};

@@ -1,24 +1,36 @@
-import Product from '../models/ProductModel.mjs';
-import {errorResponse, successResponseWithData} from '../helpers/apiResponse.mjs';
-
-function ProductData(data) {
-    this.id = data._id;
-    this.guid = data.guid;
-    this.title = data.title;
-    this.picture = data.picture;
-    this.company = data.company;
-    this.about = data.about;
-    this.registered = data.registered;
-    this.tags = data.tags;
-    this.price = data.price;
-}
+import Product, {productData} from '../models/ProductModel.mjs';
+import {errorResponse, successResponseWithData, validationErrorWithData} from '../helpers/apiResponse.mjs';
+import {transformCollectionPickKeys} from '../utils/dataTransformation.mjs';
 
 export const allProductsList = [
     async (req, res) => {
-        try {
-            const products = await Product.find({});
+        let {limit=10, offset=0} = req.query;
+        limit = parseInt(limit);
+        offset = parseInt(offset);
+        const isWrongLinit = limit < 1 || limit > 10;
 
-            successResponseWithData(res, products);
+        if (isWrongLinit) {
+            return validationErrorWithData(res);
+        }
+
+        try {
+            const [{products, totalCount: [{count}]}] = await Product.aggregate([{
+                $facet: {
+                    products: [
+                        {$skip: offset},
+                        {$limit: limit}
+                    ],
+                    totalCount: [
+                        {$match: {}},
+                        {$count: 'count'}
+                    ]
+                }
+            }]);
+
+            successResponseWithData(res, {
+                products: transformCollectionPickKeys(products, productData),
+                totalCount: count
+            });
         } catch (e) {
             return errorResponse(res, e);
         }
