@@ -5,7 +5,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const config = {
     entry: [
         'react-hot-loader/patch',
-        './src/index.jsx'
+        './src/index.tsx'
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -14,9 +14,13 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                use: 'babel-loader',
-                exclude: /node_modules/
+                test: /\.(t|j)sx?$/,
+                use: {loader: 'awesome-typescript-loader'}
+            },
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'source-map-loader'
             },
             {
                 test: /([\\/])styles\.(s)?css$/,
@@ -74,7 +78,9 @@ const config = {
     resolve: {
         extensions: [
             '.js',
-            '.jsx'
+            '.jsx',
+            '.ts',
+            '.tsx'
         ],
         alias: {
             'react-dom': '@hot-loader/react-dom',

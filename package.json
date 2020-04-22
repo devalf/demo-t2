@@ -9,6 +9,13 @@
   },
   "author": "Oleksiy Petrychko",
   "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.20"
+  },
   "devDependencies": {
     "eslint": "^6.7.2",
     "eslint-config-google": "^0.14.0",
