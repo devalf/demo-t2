@@ -15,7 +15,7 @@ const config = {
         rules: [
             {
                 test: /\.(t|j)sx?$/,
-                use: {loader: 'awesome-typescript-loader'}
+                loader: 'ts-loader'
             },
             {
                 enforce: 'pre',
@@ -90,9 +90,10 @@ const config = {
         }
     },
     devServer: {
-        contentBase: './dist',
+        contentBase: path.resolve(__dirname, './dist'),
         host: '0.0.0.0',
-        port: 8080
+        port: 8080,
+        hot: true
     },
     plugins: [
         new LodashModuleReplacementPlugin,

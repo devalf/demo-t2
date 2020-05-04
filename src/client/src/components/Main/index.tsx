@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {FormInput} from 'shards-react';
 
 import styles from './styles.scss';
 
@@ -7,6 +8,9 @@ class Main extends Component {
         return (
             <div className={styles.container}>
                 Hello World - client-side!
+                <div>
+                    <FormInput placeholder={'qwerty'} />
+                </div>
             </div>
         );
     }

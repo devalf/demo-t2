@@ -49,6 +49,9 @@ function getDependencies(obj) {
 
     try {
         await fs.writeFile('./package.json', JSON.stringify(mergedJSON, null, 2));
+
+        // eslint-disable-next-line no-console
+        console.log('Root package.json compiled successfully');
     } catch (err) {
         // eslint-disable-next-line no-console
         console.error(err);

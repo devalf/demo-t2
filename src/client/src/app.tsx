@@ -5,6 +5,9 @@ import Main from 'components/Main';
 
 import './css/main.scss';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'shards-ui/dist/css/shards.min.css'
+
 class App extends React.Component {
     render() {
         return <Main />;
