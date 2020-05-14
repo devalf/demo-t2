@@ -1,15 +1,12 @@
-@import './reset';
-@import './variables';
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~shards-ui/dist/css/shards.min.css';
 
-@import './vendor/mapbox-gl.css';
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/utilities';
 
-$primary-color: #dddddd;
-$bg: #333333;
+@import 'base/typography';
 
-$base-font: 16px;
+@import 'layout/grid';
 
-body {
-  color: $primary-color;
-  background-color: $bg;
-  font-size: $base-font;
-}
+@import 'vendors/mapbox-gl.css';
