@@ -4,7 +4,8 @@
   "description": "Demo project",
   "scripts": {
     "lint:js": "eslint --ext .js --ext .jsx --ext .mjs src",
-    "lint:js-fix": "eslint --ext .js --ext .jsx --ext .mjs src --fix"
+    "lint:js-fix": "eslint --ext .js --ext .jsx --ext .mjs src --fix",
+    "lint:style": "stylelint '**/*.scss' '**/*.css'; exit 0"
   },
   "author": "Oleksiy Petrychko",
   "license": "MIT",
