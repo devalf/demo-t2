@@ -1,1 +1,7 @@
-// blank
+@import 'src/css/abstracts/variables';
+
+.containerDemo {
+  max-width: $container-max-width;
+  min-width: $container-min-width;
+  margin: 0 auto;
+}
