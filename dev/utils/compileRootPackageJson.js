@@ -35,6 +35,11 @@ function getDependencies(obj) {
 
     const mergedJSON = {
         ...baseJSON,
+        scripts: {
+            ...baseJSON.scripts,
+            ...clientDependencies.scripts,
+            ...serverDependencies.scripts
+        },
         dependencies: {
             ...baseJSON.dependencies,
             ...clientDependencies.dependencies,
