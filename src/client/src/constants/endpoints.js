@@ -1,1 +1,1 @@
-export const getProducts = '/products';
+export const getAllProducts = '/products/all';

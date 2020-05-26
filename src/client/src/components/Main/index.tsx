@@ -3,15 +3,15 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import {Header} from 'components/Layout/Header';
 import API from 'utils/API';
-import {getProducts} from 'constants/endpoints';
+import {getAllProducts} from 'constants/endpoints';
 
 import styles from './styles.scss';
 
 class Main extends Component {
     async componentDidMount() {
-        const data = await API.get(getProducts);
+        const {data: {data: allData}} = await API.get(getAllProducts);
 
-        console.log(data);
+        console.log(allData);
     }
 
     render() {
