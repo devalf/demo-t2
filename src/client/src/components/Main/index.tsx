@@ -7,7 +7,7 @@ import {getAllProducts} from 'constants/endpoints';
 
 import styles from './styles.scss';
 
-class Main extends Component {
+export default class Main extends Component {
     async componentDidMount() {
         const {data: {data: allData}} = await API.get(getAllProducts);
 
@@ -28,5 +28,3 @@ class Main extends Component {
         );
     }
 }
-
-export default Main;
