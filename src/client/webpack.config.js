@@ -86,9 +86,11 @@ const config = {
             'react-dom': '@hot-loader/react-dom',
             'components': path.resolve(__dirname, 'src/components'),
             'utils': path.resolve(__dirname, 'src/utils'),
-            'configs': path.resolve(__dirname, '../configs')
+            'configs': path.resolve(__dirname, 'src/configs'),
+            'constants': path.resolve(__dirname, 'src/constants')
         }
     },
+    devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
         host: '0.0.0.0',

@@ -7,9 +7,9 @@ export const allProductsList = [
         let {limit=10, offset=0} = req.query;
         limit = parseInt(limit);
         offset = parseInt(offset);
-        const isWrongLinit = limit < 1 || limit > 10;
+        const isWrongLimit = limit < 1 || limit > 10;
 
-        if (isWrongLinit) {
+        if (isWrongLimit) {
             return validationErrorWithData(res);
         }
 
