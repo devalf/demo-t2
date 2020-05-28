@@ -22,6 +22,7 @@
     "file-loader": "^5.0.2",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass": "^4.13.0",
+    "redux-devtools-extension": "^2.13.8",
     "sass-loader": "^8.0.0",
     "shards-react": "^1.0.3",
     "source-map-loader": "^0.2.4",
@@ -46,6 +47,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.20",
-    "react-router-dom": "^5.2.0"
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
   }
 }

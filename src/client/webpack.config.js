@@ -87,7 +87,8 @@ const config = {
             'components': path.resolve(__dirname, 'src/components'),
             'utils': path.resolve(__dirname, 'src/utils'),
             'configs': path.resolve(__dirname, 'src/configs'),
-            'constants': path.resolve(__dirname, 'src/constants')
+            'constants': path.resolve(__dirname, 'src/constants'),
+            'state': path.resolve(__dirname, 'src/state')
         }
     },
     devtool: 'cheap-module-eval-source-map',

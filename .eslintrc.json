@@ -25,7 +25,6 @@
     "max-len": ["error", {"code": 120}],
     "no-invalid-this": 0,
     "require-jsdoc": 0,
-    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
     "space-in-parens": ["error", "never"],
     "comma-dangle": ["error", "never"],
     "operator-linebreak": ["error", "before"],
