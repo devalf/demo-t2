@@ -1,6 +1,11 @@
 import {normalize, schema} from 'normalizr';
 
-export const normalizeData = (data) => {
+export type Normalized = {
+    entities: any;
+    result: any;
+};
+
+export const normalizeData = (data): Normalized => {
     const key = Object.keys(data).toString();
     const standardSchema = new schema.Entity(key);
     const Schema = {[key]: [standardSchema]};

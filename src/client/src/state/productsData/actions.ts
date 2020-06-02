@@ -1,31 +1,24 @@
 import API from 'utils/API';
 import {extractDataFromRequest} from 'utils/dataHandlers';
 import {getAllProducts} from 'constants/endpoints';
+import {StartRequest, AddProducts, ErrorRequest, Actions} from './types';
 
-export const actionTypes = {
-    startRequest: 'START_REQUEST_PRODUCTS',
-    successRequest: 'SUCCESS_REQUEST_PRODUCTS',
-    errorRequest: 'ERROR_REQUEST_PRODUCTS'
-};
-
-const startRequest = () => ({
-    type: actionTypes.startRequest,
-    payload: {
-        isLoading: true
-    }
+const startRequest = (): StartRequest => ({
+    type: Actions.startRequest
 });
 
-const addProducts = ({products}) => ({
-    type: actionTypes.successRequest,
+const addProducts = ({products}): AddProducts => ({
+    type: Actions.successRequest,
     payload: {
         products
     }
 });
 
-const errorRequest = (error) => ({
-    type: actionTypes.errorRequest,
+const errorRequest = (error): ErrorRequest => ({
+    type: Actions.errorRequest,
     payload: {
-        error
+        error,
+        isLoading: false
     }
 });
 

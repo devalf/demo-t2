@@ -1,5 +1,6 @@
-export const products = [];
-export const initialState = {
+import {State} from './types';
+
+export const initialState: State = {
     isLoading: false,
     error: ''
 };

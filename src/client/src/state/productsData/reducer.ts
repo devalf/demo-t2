@@ -1,10 +1,10 @@
 import {createReducer} from 'state/utils/createReducer';
 import {normalizeData} from 'state/utils/normalize';
-import {products as productsInitial, initialState} from './initialState';
-import {actionTypes} from './actions';
+import {initialState} from './initialState';
 import {requestStartReducer, requestErrorReducer} from 'state/utils/reducers/requesting';
+import {Actions} from './types';
 
-const productsNormalized = normalizeData({products: productsInitial});
+const productsNormalized = normalizeData({products: []});
 const initialProductsState = {
     ...initialState,
     ...productsNormalized
@@ -32,7 +32,7 @@ const insertProducts = (state, {payload: {products}}) => {
 };
 
 export const productsData = createReducer(initialProductsState, {
-    [actionTypes.startRequest]: requestStartReducer,
-    [actionTypes.successRequest]: insertProducts,
-    [actionTypes.errorRequest]: requestErrorReducer
+    [Actions.startRequest]: requestStartReducer,
+    [Actions.successRequest]: insertProducts,
+    [Actions.errorRequest]: requestErrorReducer
 });

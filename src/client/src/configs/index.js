@@ -1,5 +1,3 @@
-// eslint-disable-next-line max-len
-export const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiYWxleHdkIiwiYSI6ImNrNDM1b2UwNjA0Mncza2xreXl1aTlzcDkifQ.pDyrVW_kgn85dCrH3ToGCQ';
 export const BASE_URL = 'api/v1';
 
 /**

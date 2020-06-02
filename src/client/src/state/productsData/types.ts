@@ -1,3 +1,11 @@
+import {Requesting} from 'state/utils/reducers/types';
+
+export enum Actions {
+    startRequest = 'START_REQUEST_PRODUCTS',
+    successRequest = 'SUCCESS_REQUEST_PRODUCTS',
+    errorRequest = 'ERROR_REQUEST_PRODUCTS'
+}
+
 export type Product = {
     about: string;
     company: string;
@@ -10,5 +18,24 @@ export type Product = {
 };
 
 export type Products = {
-    products: Product[]
+    products: Product[];
+};
+
+export type StartRequest = {
+    type: Actions.startRequest;
+};
+
+export type AddProducts = {
+    type: Actions.successRequest;
+    payload: Products;
+};
+
+export type ErrorRequest = {
+    type: Actions.errorRequest;
+    payload: Requesting;
+};
+
+export type State = {
+    isLoading: boolean;
+    error: string;
 };

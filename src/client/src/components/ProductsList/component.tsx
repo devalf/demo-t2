@@ -16,8 +16,6 @@ export default class ProductsList extends Component<Props> {
 
         console.log(products);
 
-        return <div>
-            LST
-        </div>;
+        return null;
     }
 }
