@@ -2,6 +2,7 @@ import API from 'utils/API';
 import {extractDataFromRequest} from 'utils/dataHandlers';
 import {getAllProducts} from 'constants/endpoints';
 import {StartRequest, AddProducts, ErrorRequest, Actions} from './types';
+import {Dispatch} from 'redux';
 
 const startRequest = (): StartRequest => ({
     type: Actions.startRequest
@@ -22,7 +23,7 @@ const errorRequest = (error): ErrorRequest => ({
     }
 });
 
-export const fetchProducts = () => async (dispatch) => {
+export const fetchProducts = () => async (dispatch: Dispatch): Promise<void> => {
     dispatch(startRequest());
 
     try {

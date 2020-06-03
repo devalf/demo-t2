@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, ReactNode} from 'react';
 
 type Props = {
     setUI: () => void;
@@ -7,15 +7,15 @@ type Props = {
 };
 
 export default class ProductsList extends Component<Props> {
-    componentDidMount() {
+    componentDidMount(): void {
         this.props.fetchProducts();
     }
 
-    render() {
+    render(): ReactNode {
         const {products} = this.props;
 
         console.log(products);
 
-        return null;
+        return <></>;
     }
 }

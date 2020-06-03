@@ -1,8 +1,10 @@
+import {Actions, Payload, SetUI} from './types';
+
 export const actionTypes = {
     setUI: 'SET_UI'
 };
 
-export const setUI = (payload) => ({
-    type: actionTypes.setUI,
+export const setUI = (payload: Payload): SetUI => ({
+    type: Actions.setUI,
     payload
 });
