@@ -17,6 +17,10 @@ export type Product = {
     title: string;
 };
 
+export type ProductNormalized = Product & {
+    id: string;
+};
+
 export type Products = {
     products: Product[];
 };

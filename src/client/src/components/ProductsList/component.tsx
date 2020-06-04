@@ -1,5 +1,8 @@
 import React, {Component, ReactNode} from 'react';
 
+import Card from './card';
+import {ProductNormalized} from 'state/productsData/types';
+
 type Props = {
     setUI: () => void;
     fetchProducts: () => void;
@@ -14,8 +17,10 @@ export default class ProductsList extends Component<Props> {
     render(): ReactNode {
         const {products} = this.props;
 
-        console.log(products);
-
-        return <></>;
+        return <>
+            {products && <div className={'row m-0 mt-4'}>
+                {products.map((product: ProductNormalized) => <Card key={product.id} {...product} />)}
+            </div>}
+        </>;
     }
 }

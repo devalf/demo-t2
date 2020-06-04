@@ -14,10 +14,8 @@ export default class Main extends Component {
                     <Header />
 
                     <Switch>
-                        <Route path='/' render={() => <>home page</>} />
+                        <Route path='/' component={ProductsList} />
                     </Switch>
-
-                    <ProductsList />
                 </Router>
             </div>
         );

@@ -2,7 +2,17 @@ import {createSelector} from 'reselect';
 
 const selectProductsData = (state) => state.productsData;
 
-export const selectProductsDataEntities = createSelector(
+const selectResult = createSelector(
     selectProductsData,
-    ({entities}) => entities
+    ({result}) => result.products
+);
+
+const selectEntities = createSelector(
+    selectProductsData,
+    ({entities}) => entities.products
+);
+
+export const selectProducts = createSelector(
+    [selectResult, selectEntities],
+    (result, entities) => result.map((id) => entities[id])
 );
