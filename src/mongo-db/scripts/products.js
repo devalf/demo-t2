@@ -2,7 +2,7 @@ const products = [
     {
         'guid': '076759d0-5af3-4819-a72d-ffe120212f55',
         'title': 'Lorem',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'ENJOLA',
         'about': 'Proident consectetur fugiat occaecat cupidatat laborum esse in laborum '
             + 'reprehenderit ut veniam. Elit fugiat laborum aliqua aute irure adipisicing sit'
@@ -25,7 +25,7 @@ const products = [
     {
         'guid': '24cba56d-c267-4a87-8cb9-31d98e7b9e5c',
         'title': 'Ipsum',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'RECOGNIA',
         'about': 'Eu deserunt anim quis officia labore tempor velit quis. Labore fugiat amet magna'
             + ' excepteur laborum in dolor consequat eiusmod dolore nostrud. Excepteur sunt duis non '
@@ -45,7 +45,7 @@ const products = [
     {
         'guid': '3dcc7cec-d2b8-49a8-81bc-8c05583024fc',
         'title': 'Dolor',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'ECRATER',
         'about': 'Nostrud voluptate tempor culpa eu. Amet ut occaecat exercitation irure nisi eu '
             + 'eiusmod duis duis. Exercitation nisi et esse voluptate do est.\r\n',
@@ -64,7 +64,7 @@ const products = [
     {
         'guid': '77a65ed2-3a9e-41bb-bb82-032406f560a5',
         'title': 'Sit',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'ORBIN',
         'about': 'Sunt amet magna qui dolore. Dolore consequat aute ullamco cillum est sit sit '
             + 'do exercitation aliqua dolor cupidatat aute eiusmod. Nostrud in ad aliquip fugiat labore.\r\n',
@@ -83,7 +83,7 @@ const products = [
     {
         'guid': '713bb9b8-18bb-482b-a3b9-4f7759052078',
         'title': 'Amet',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'KIOSK',
         'about': 'Dolore sunt esse incididunt excepteur occaecat. In non est laborum incididunt'
             + ' elit ad sit eu exercitation ipsum dolore aliquip. Sunt et tempor proident deserunt '
@@ -103,7 +103,7 @@ const products = [
     {
         'guid': '81fecfd8-7848-4b32-bf3a-fa6d7c9e77ba',
         'title': 'Consectetur',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'SHADEASE',
         'about': 'Quis occaecat adipisicing anim dolore Lorem culpa. Ad excepteur enim '
             + 'cillum nulla id. Quis non officia voluptate cupidatat anim proident occaecat '
@@ -124,7 +124,7 @@ const products = [
     {
         'guid': '1313a45a-d47a-4c0b-b4f7-7fbf2b025551',
         'title': 'Adipisicing',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'IDEGO',
         'about': 'Ex nisi et qui dolor irure nisi duis mollit eiusmod aliqua nostrud. Velit anim '
             + 'sunt est veniam anim laboris officia adipisicing incididunt sunt laborum irure id. Ad '
@@ -144,7 +144,7 @@ const products = [
     {
         'guid': '827f1c57-eb5b-4337-ace2-c85cade25a8d',
         'title': 'Elit',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'ZOUNDS',
         'about': 'Sit cillum culpa proident non ipsum consequat anim laborum enim Lorem. '
             + 'Ad consectetur et duis in id non incididunt irure laborum officia est. Sunt '
@@ -165,7 +165,7 @@ const products = [
     {
         'guid': '6d1ed806-7224-4a77-abda-d2d1fc588912',
         'title': 'Adipisci',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'INVENTURE',
         'about': 'Et ipsum irure consequat sint adipisicing minim nostrud irure ullamco officia'
             + ' esse eu nisi. Pariatur eu minim deserunt eu aliquip fugiat minim amet dolore ea sit.'
@@ -187,7 +187,7 @@ const products = [
     {
         'guid': 'cef1a4f4-13aa-4adc-a528-2b79955b26b0',
         'title': 'Dignissimos',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'GEOSTELE',
         'about': 'Ut voluptate adipisicing enim et ipsum dolor adipisicing proident proident velit culpa '
             + 'reprehenderit. Tempor laborum ut ex mollit dolor. Consectetur ipsum nulla consectetur non'
@@ -209,7 +209,7 @@ const products = [
     {
         'guid': '58ca323e-2568-494f-872e-2ce4c3991dda',
         'title': 'Doloremque',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'OCEANICA',
         'about': 'Laborum elit dolore cillum dolor esse ex exercitation. Nisi non reprehenderit adipisicing'
             + ' ut velit tempor excepteur incididunt sint labore pariatur magna. Ullamco fugiat deserunt minim'
@@ -231,7 +231,7 @@ const products = [
     {
         'guid': 'dbdd4f8c-74cc-4115-ad2d-52b07adeee86',
         'title': 'Eos',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'GRUPOLI',
         'about': 'Id irure in proident labore ad magna minim velit irure sint reprehenderit duis sint eiusmod.'
             + ' Irure magna qui sunt excepteur et ex aliqua laborum eiusmod. Lorem dolore anim labore ut '
@@ -252,7 +252,7 @@ const products = [
     {
         'guid': '846ef953-50ac-4a67-869e-694cea355801',
         'title': 'Maxime',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'RADIANTIX',
         'about': 'Laboris ex culpa elit cillum reprehenderit amet sit. Veniam non excepteur tempor Lorem '
             + 'qui ea do anim nisi tempor ad do minim. Id qui dolore elit enim labore amet consectetur '
@@ -273,7 +273,7 @@ const products = [
     {
         'guid': '2a6cffe0-ef3b-484d-b2bb-7ba1e4490ad8',
         'title': 'Praesentium',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'BILLMED',
         'about': 'Consequat qui laboris aliquip qui. Ipsum nostrud magna eiusmod reprehenderit minim'
             + ' elit consectetur amet. Eiusmod excepteur pariatur anim sint ipsum amet est id dolor elit et.\r\n',
@@ -292,7 +292,7 @@ const products = [
     {
         'guid': 'f6cdc540-ba84-4b74-85ef-d0db069d92fa',
         'title': 'Repellat',
-        'picture': 'http://placehold.it/132x132',
+        'picture': 'https://picsum.photos/250/250',
         'company': 'GOGOL',
         'about': 'Nulla id laborum officia tempor duis nisi. Sint tempor ex irure ipsum esse aliquip '
             + 'incididunt. Deserunt sint sunt minim irure minim minim sunt. Consequat in minim ad sit'

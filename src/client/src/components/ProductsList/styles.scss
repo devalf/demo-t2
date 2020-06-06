@@ -1,0 +1,12 @@
+@import 'src/css/abstracts/variables';
+@import 'src/css/abstracts/utilities';
+
+.description {
+  @include multiLineEllipsis(3);
+}
+
+.tagsTitle, .tagsList {
+  font-size: $font-small;
+  color: $grey-silver;
+  display: inline;
+}
