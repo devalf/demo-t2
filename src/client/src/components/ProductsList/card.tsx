@@ -1,14 +1,14 @@
 import React from 'react';
 import cx from 'classnames';
+import moment from 'moment';
 
 import {Product} from 'state/productsData/types';
+import {standardDate} from 'constants/formatTime';
 
 import styles from './styles.scss';
 
 const ProductCard = (props: Product) => {
-    const {
-        title, price, picture, guid, about, tags, company
-    } = props;
+    const {about, company, guid, picture, price, registered, tags, title} = props;
 
     const onAddToCartClick = () => {
         console.log(`Add to cart ${guid} - TBD`);
@@ -22,7 +22,7 @@ const ProductCard = (props: Product) => {
                 </div>
                 <div className='card-body'>
                     <img src={picture} alt='' className={'img-thumbnail mb-2'}/>
-                    <div className={styles.description}>
+                    <div className={cx('mb-1', styles.description)}>
                         {about}
                     </div>
                     {tags && <>
@@ -33,6 +33,11 @@ const ProductCard = (props: Product) => {
                             )}
                         </ul>
                     </>}
+                    <div className={'mt-2'}>
+                        <small className={cx('font-italic', styles.registered)}>
+                            Registered: {moment(registered).format(standardDate)}
+                        </small>
+                    </div>
                 </div>
                 <div className='card-header'>
                     <div>

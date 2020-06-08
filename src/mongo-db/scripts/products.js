@@ -10,7 +10,7 @@ const products = [
             + ' aliquip ullamco non dolore elit. Quis et deserunt qui excepteur ad dolore '
             + 'laborum id veniam ullamco dolore consectetur duis. Laboris laborum laborum '
             + 'dolor laboris cupidatat cupidatat deserunt sint ex sit. Consectetur nulla pariatur ad et.\r\n',
-        'registered': '2014-11-24T08:03:39 -02:00',
+        'registered': '2014-11-24T08:03:39-02:00',
         'tags': [
             'consectetur',
             'voluptate',
@@ -30,7 +30,7 @@ const products = [
         'about': 'Eu deserunt anim quis officia labore tempor velit quis. Labore fugiat amet magna'
             + ' excepteur laborum in dolor consequat eiusmod dolore nostrud. Excepteur sunt duis non '
             + 'nulla do voluptate labore dolor. Eu ut magna exercitation anim excepteur.\r\n',
-        'registered': '2015-04-11T01:08:54 -03:00',
+        'registered': '2015-04-11T01:08:54-03:00',
         'tags': [
             'in',
             'elit',
@@ -49,7 +49,7 @@ const products = [
         'company': 'ECRATER',
         'about': 'Nostrud voluptate tempor culpa eu. Amet ut occaecat exercitation irure nisi eu '
             + 'eiusmod duis duis. Exercitation nisi et esse voluptate do est.\r\n',
-        'registered': '2017-03-27T07:44:23 -03:00',
+        'registered': '2017-03-27T07:44:23-03:00',
         'tags': [
             'non',
             'velit',
@@ -68,7 +68,7 @@ const products = [
         'company': 'ORBIN',
         'about': 'Sunt amet magna qui dolore. Dolore consequat aute ullamco cillum est sit sit '
             + 'do exercitation aliqua dolor cupidatat aute eiusmod. Nostrud in ad aliquip fugiat labore.\r\n',
-        'registered': '2019-11-14T07:05:56 -02:00',
+        'registered': '2019-11-14T07:05:56-02:00',
         'tags': [
             'pariatur',
             'laborum',
@@ -88,7 +88,7 @@ const products = [
         'about': 'Dolore sunt esse incididunt excepteur occaecat. In non est laborum incididunt'
             + ' elit ad sit eu exercitation ipsum dolore aliquip. Sunt et tempor proident deserunt '
             + 'qui enim cupidatat ipsum amet mollit duis duis.\r\n',
-        'registered': '2019-05-13T03:44:04 -03:00',
+        'registered': '2019-05-13T03:44:04-03:00',
         'tags': [
             'esse',
             'ut',
@@ -109,7 +109,7 @@ const products = [
             + 'cillum nulla id. Quis non officia voluptate cupidatat anim proident occaecat '
             + 'tempor qui officia commodo dolor consectetur. Et pariatur laboris labore minim '
             + 'fugiat est labore elit.\r\n',
-        'registered': '2016-07-25T12:31:13 -03:00',
+        'registered': '2016-07-25T12:31:13-03:00',
         'tags': [
             'reprehenderit',
             'nostrud',
@@ -129,7 +129,7 @@ const products = [
         'about': 'Ex nisi et qui dolor irure nisi duis mollit eiusmod aliqua nostrud. Velit anim '
             + 'sunt est veniam anim laboris officia adipisicing incididunt sunt laborum irure id. Ad '
             + 'excepteur sit deserunt sit elit nulla.\r\n',
-        'registered': '2015-07-22T09:06:19 -03:00',
+        'registered': '2015-07-22T09:06:19-03:00',
         'tags': [
             'culpa',
             'est',
@@ -150,7 +150,7 @@ const products = [
             + 'Ad consectetur et duis in id non incididunt irure laborum officia est. Sunt '
             + 'nulla eiusmod non adipisicing velit esse aute veniam ea nulla veniam cupidatat'
             + ' dolor. Esse et duis do sit. Consequat amet ex anim laborum.\r\n',
-        'registered': '2019-06-04T08:50:49 -03:00',
+        'registered': '2019-06-04T08:50:49-03:00',
         'tags': [
             'labore',
             'Lorem',
@@ -172,7 +172,7 @@ const products = [
             + ' Ex amet ea do excepteur nostrud adipisicing. Tempor fugiat irure in aliquip sit veniam '
             + 'commodo commodo nostrud ipsum ex. Lorem consectetur ut minim incididunt consequat veniam. '
             + 'Eiusmod sint est veniam reprehenderit.\r\n',
-        'registered': '2015-07-12T07:48:37 -03:00',
+        'registered': '2015-07-12T07:48:37-03:00',
         'tags': [
             'id',
             'nostrud',
@@ -194,7 +194,7 @@ const products = [
             + ' culpa veniam nulla nostrud deserunt. Ea officia ea ea in mollit minim. Voluptate sit nisi '
             + 'ad in. Id do magna proident officia deserunt voluptate esse qui sunt aliqua Lorem reprehenderit'
             + ' elit nisi. Exercitation non velit Lorem enim duis mollit aliquip cillum aute.\r\n',
-        'registered': '2014-06-10T11:56:20 -03:00',
+        'registered': '2014-06-10T11:56:20-03:00',
         'tags': [
             'aute',
             'esse',
@@ -216,7 +216,7 @@ const products = [
             + ' reprehenderit reprehenderit nisi magna laborum veniam eu nulla commodo eu. Lorem proident nostrud '
             + 'exercitation dolor labore. Veniam esse eiusmod nisi eu id. Ipsum reprehenderit velit quis occaecat '
             + 'ipsum aliqua Lorem et.\r\n',
-        'registered': '2018-07-14T01:00:03 -03:00',
+        'registered': '2018-07-14T01:00:03-03:00',
         'tags': [
             'aliquip',
             'quis',
@@ -237,7 +237,7 @@ const products = [
             + ' Irure magna qui sunt excepteur et ex aliqua laborum eiusmod. Lorem dolore anim labore ut '
             + 'mollit commodo deserunt quis eu non. Quis cupidatat do nisi aliqua et enim officia quis anim '
             + 'aliqua mollit culpa pariatur.\r\n',
-        'registered': '2016-07-19T06:29:52 -03:00',
+        'registered': '2016-07-19T06:29:52-03:00',
         'tags': [
             'ut',
             'labore',
@@ -258,7 +258,7 @@ const products = [
             + 'qui ea do anim nisi tempor ad do minim. Id qui dolore elit enim labore amet consectetur '
             + 'aliqua. Minim dolore elit ipsum laborum irure sint sit labore dolore. Labore dolor occaecat'
             + ' laboris ad Lorem reprehenderit eu magna eiusmod fugiat cillum laborum.\r\n',
-        'registered': '2016-07-12T01:58:34 -03:00',
+        'registered': '2016-07-12T01:58:34-03:00',
         'tags': [
             'ex',
             'aliqua',
@@ -277,7 +277,7 @@ const products = [
         'company': 'BILLMED',
         'about': 'Consequat qui laboris aliquip qui. Ipsum nostrud magna eiusmod reprehenderit minim'
             + ' elit consectetur amet. Eiusmod excepteur pariatur anim sint ipsum amet est id dolor elit et.\r\n',
-        'registered': '2016-12-21T12:58:11 -02:00',
+        'registered': '2016-12-21T12:58:11-02:00',
         'tags': [
             'ullamco',
             'deserunt',
@@ -300,7 +300,7 @@ const products = [
             + 'laboris aliqua quis do fugiat. Quis laborum reprehenderit do minim dolore tempor nisi '
             + 'adipisicing ipsum Lorem quis duis adipisicing et. Dolore velit et enim eiusmod culpa '
             + 'laborum cillum ullamco.\r\n',
-        'registered': '2014-03-25T01:07:19 -02:00',
+        'registered': '2014-03-25T01:07:19-02:00',
         'tags': [
             'ipsum',
             'fugiat',

@@ -13,8 +13,8 @@
     position: absolute;
     right: 1em;
     bottom: 0;
-    width: 1.1em;
-    background-color: $bgColor;
+    width: 1.8em;
+    background-image: linear-gradient(to left, $bgColor, $bgColor, $bgColor, rgba(0, 0, 0, 0));
     text-align: right;
   }
 }
