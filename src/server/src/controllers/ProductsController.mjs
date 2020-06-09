@@ -8,8 +8,9 @@ export const allProductsList = [
         limit = parseInt(limit);
         offset = parseInt(offset);
         const isWrongLimit = limit < 1 || limit > 10;
+        const isWrongOffset = offset < 0;
 
-        if (isWrongLimit) {
+        if (isWrongLimit || isWrongOffset) {
             return validationErrorWithData(res);
         }
 
