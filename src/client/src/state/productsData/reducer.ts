@@ -3,6 +3,7 @@ import {normalizeData} from 'state/utils/normalize';
 import {initialState} from './initialState';
 import {requestStartReducer, requestErrorReducer} from 'state/utils/reducers/requesting';
 import {Actions} from './types';
+import {ENTITIES_OFFSET} from 'constants/fetchOptions';
 
 const productsNormalized = normalizeData({products: []});
 const initialProductsState = {
@@ -10,7 +11,7 @@ const initialProductsState = {
     ...productsNormalized
 };
 
-const insertProducts = (state, {payload: {products}}) => {
+const insertProducts = (state, {payload: {products, isNew}}) => {
     const newProducts = normalizeData({products});
 
     return {
@@ -27,6 +28,10 @@ const insertProducts = (state, {payload: {products}}) => {
                 ...state.result.products,
                 ...newProducts.result.products
             ]
+        },
+        filters: {
+            ...state.filters,
+            offset: isNew ? state.filters.offset + ENTITIES_OFFSET : state.filters.offset
         }
     };
 };

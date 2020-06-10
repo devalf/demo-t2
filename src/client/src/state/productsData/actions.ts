@@ -1,17 +1,20 @@
+import {Dispatch} from 'redux';
+
 import API from 'utils/API';
 import {extractDataFromRequest} from 'utils/dataHandlers';
 import {getAllProducts} from 'constants/endpoints';
-import {StartRequest, AddProducts, ErrorRequest, Actions} from './types';
-import {Dispatch} from 'redux';
+import {StartRequest, AddProducts, ErrorRequest, Actions, FetchProductsOptions} from './types';
+import {ENTITIES_OFFSET} from 'constants/fetchOptions';
 
 const startRequest = (): StartRequest => ({
     type: Actions.startRequest
 });
 
-const addProducts = ({products}): AddProducts => ({
+const addProducts = ({products}, isNew): AddProducts => ({
     type: Actions.successRequest,
     payload: {
-        products
+        products,
+        isNew
     }
 });
 
@@ -23,14 +26,23 @@ const errorRequest = (error): ErrorRequest => ({
     }
 });
 
-export const fetchProducts = () => async (dispatch: Dispatch): Promise<void> => {
-    dispatch(startRequest());
+export const fetchProducts = (options?: FetchProductsOptions) =>
+    async (dispatch: Dispatch, getState): Promise<void> => {
+        dispatch(startRequest());
 
-    try {
-        const data = extractDataFromRequest(await API.get(getAllProducts));
+        const {productsData: {filters: filtersSate}} = getState();
+        const filtersParams = {...filtersSate};
+        const shouldLoadMore = options?.loadMore;
 
-        dispatch(addProducts(data));
-    } catch (err) {
-        dispatch(errorRequest(err));
-    }
-};
+        if (shouldLoadMore) {
+            filtersParams.offset = filtersParams.offset + ENTITIES_OFFSET;
+        }
+
+        try {
+            const data = extractDataFromRequest(await API.get(getAllProducts, {params: {...filtersParams}}));
+
+            dispatch(addProducts(data, shouldLoadMore));
+        } catch (err) {
+            dispatch(errorRequest(err));
+        }
+    };

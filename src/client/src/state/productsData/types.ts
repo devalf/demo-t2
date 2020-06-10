@@ -31,7 +31,7 @@ export type StartRequest = {
 
 export type AddProducts = {
     type: Actions.successRequest;
-    payload: Products;
+    payload: Products & {isNew?: boolean};
 };
 
 export type ErrorRequest = {
@@ -42,4 +42,12 @@ export type ErrorRequest = {
 export type State = {
     isLoading: boolean;
     error: string;
+    filters: {
+        offset: number;
+        limit: number;
+    }
+};
+
+export type FetchProductsOptions = {
+    loadMore?: boolean;
 };
