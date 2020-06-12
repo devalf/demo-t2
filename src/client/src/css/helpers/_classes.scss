@@ -2,3 +2,7 @@
   pointer-events: none;
   opacity: .5;
 }
+
+.rotate-animation {
+  animation: spin 1s linear infinite;
+}

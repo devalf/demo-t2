@@ -25,9 +25,10 @@ export default class ProductsList extends Component<Props> {
 
     render(): ReactNode {
         const {products, isLoading, totalCount} = this.props;
+        const showLoading = !products.length && isLoading;
 
         return <>
-            {isLoading && <Loader />}
+            {showLoading && <Loader />}
             {products && <div className={'row m-0 mt-4'}>
                 {products.map((product: ProductNormalized) => <Card key={product.id} {...product} />)}
             </div>}
@@ -35,6 +36,7 @@ export default class ProductsList extends Component<Props> {
             <LoadMore
                 onClick={this.fetchMoreProducts}
                 disabled={products.length === totalCount}
+                isLoading={isLoading}
             />
         </>;
     }
