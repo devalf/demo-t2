@@ -22,3 +22,8 @@ export const selectIsLoading = createSelector(
     selectProductsData,
     ({isLoading}) => isLoading
 );
+
+export const selectTotalCount = createSelector(
+    selectProductsData,
+    ({totalCount}) => totalCount
+);

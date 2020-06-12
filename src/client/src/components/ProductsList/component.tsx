@@ -11,6 +11,7 @@ type Props = {
     fetchProducts: typeof fetchProducts;
     isLoading: boolean;
     products: [];
+    totalCount: number;
 };
 
 export default class ProductsList extends Component<Props> {
@@ -23,7 +24,7 @@ export default class ProductsList extends Component<Props> {
     }
 
     render(): ReactNode {
-        const {products, isLoading} = this.props;
+        const {products, isLoading, totalCount} = this.props;
 
         return <>
             {isLoading && <Loader />}
@@ -31,7 +32,10 @@ export default class ProductsList extends Component<Props> {
                 {products.map((product: ProductNormalized) => <Card key={product.id} {...product} />)}
             </div>}
 
-            <LoadMore onClick={this.fetchMoreProducts} />
+            <LoadMore
+                onClick={this.fetchMoreProducts}
+                disabled={products.length === totalCount}
+            />
         </>;
     }
 }

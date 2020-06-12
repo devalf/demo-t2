@@ -10,10 +10,11 @@ const startRequest = (): StartRequest => ({
     type: Actions.startRequest
 });
 
-const addProducts = ({products}, isNew): AddProducts => ({
+const addProducts = ({products, totalCount}, isNew): AddProducts => ({
     type: Actions.successRequest,
     payload: {
         products,
+        totalCount,
         isNew
     }
 });

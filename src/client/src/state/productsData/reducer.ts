@@ -11,11 +11,12 @@ const initialProductsState = {
     ...productsNormalized
 };
 
-const insertProducts = (state, {payload: {products, isNew}}) => {
+const insertProducts = (state, {payload: {products, totalCount, isNew}}) => {
     const newProducts = normalizeData({products});
 
     return {
         ...state,
+        totalCount,
         isLoading: false,
         entities: {
             products: {

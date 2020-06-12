@@ -31,7 +31,10 @@ export type StartRequest = {
 
 export type AddProducts = {
     type: Actions.successRequest;
-    payload: Products & {isNew?: boolean};
+    payload: Products & {
+        totalCount: number;
+        isNew?: boolean;
+    };
 };
 
 export type ErrorRequest = {
