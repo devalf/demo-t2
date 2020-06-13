@@ -3,7 +3,8 @@ import {Requesting} from 'state/utils/reducers/types';
 export enum Actions {
     startRequest = 'START_REQUEST_PRODUCTS',
     successRequest = 'SUCCESS_REQUEST_PRODUCTS',
-    errorRequest = 'ERROR_REQUEST_PRODUCTS'
+    errorRequest = 'ERROR_REQUEST_PRODUCTS',
+    resetProductsState = 'RESET_PRODUCTS_STATE'
 }
 
 export type Product = {
@@ -53,4 +54,9 @@ export type State = {
 
 export type FetchProductsOptions = {
     loadMore?: boolean;
+};
+
+
+export type ResetProducts = {
+    type: Actions.resetProductsState
 };

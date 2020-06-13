@@ -3,7 +3,7 @@ import {Dispatch} from 'redux';
 import API from 'utils/API';
 import {extractDataFromRequest} from 'utils/dataHandlers';
 import {getAllProducts} from 'constants/endpoints';
-import {StartRequest, AddProducts, ErrorRequest, Actions, FetchProductsOptions} from './types';
+import {StartRequest, AddProducts, ErrorRequest, Actions, FetchProductsOptions, ResetProducts} from './types';
 import {ENTITIES_OFFSET} from 'constants/fetchOptions';
 
 const startRequest = (): StartRequest => ({
@@ -25,6 +25,10 @@ const errorRequest = (error): ErrorRequest => ({
         error,
         isLoading: false
     }
+});
+
+export const resetProductsState = (): ResetProducts => ({
+    type: Actions.resetProductsState
 });
 
 export const fetchProducts = (options?: FetchProductsOptions) =>

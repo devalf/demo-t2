@@ -3,6 +3,9 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import {Header} from 'components/Layout/Header';
 import ProductsList from 'components/ProductsList';
+import SingleProduct from 'components/SingleProduct';
+import NoMatch from 'components/NoMatch';
+import {singleProductPageRoute} from 'constants/routes';
 
 import styles from './styles.scss';
 
@@ -14,7 +17,11 @@ export default class Main extends Component {
                     <Header />
 
                     <Switch>
-                        <Route path='/' component={ProductsList} />
+                        <Route exact path='/' component={ProductsList} />
+                        <Route path={singleProductPageRoute} >
+                            <SingleProduct />
+                        </Route>
+                        <Route component={NoMatch} />
                     </Switch>
                 </Router>
             </div>

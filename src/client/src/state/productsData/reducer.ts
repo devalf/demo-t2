@@ -40,5 +40,6 @@ const insertProducts = (state, {payload: {products, totalCount, isNew}}) => {
 export const productsData = createReducer(initialProductsState, {
     [Actions.startRequest]: requestStartReducer,
     [Actions.successRequest]: insertProducts,
-    [Actions.errorRequest]: requestErrorReducer
+    [Actions.errorRequest]: requestErrorReducer,
+    [Actions.resetProductsState]: () => initialProductsState
 });

@@ -1,9 +1,11 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import cx from 'classnames';
 import moment from 'moment';
 
 import {Product} from 'state/productsData/types';
 import {standardDate} from 'constants/formatTime';
+import {buildLinkToProductPage} from 'constants/routes';
 
 import styles from './styles.scss';
 
@@ -48,10 +50,17 @@ const ProductCard = (props: Product) => {
                     </h2>
                     <button
                         type='button'
-                        className='btn btn-lg btn-block btn-outline-primary'
+                        className='btn btn-md btn-block btn-outline-primary mb-4'
                         onClick={onAddToCartClick}>
                         Add to cart
                     </button>
+                    <NavLink
+                        className='btn btn-md btn-block btn-outline-info'
+                        to={buildLinkToProductPage(guid)}
+                        role='button'
+                    >
+                        More
+                    </NavLink>
                 </div>
             </div>
         </div>
