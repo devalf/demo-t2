@@ -12,7 +12,7 @@ Then in the project directory run command
 `docker-compose -f docker-compose.yml up --build`
 
 wait for a while for running all necessary processes. The open in the
-browser [http://localhost:3000](http://localhost:3000) to load the Application.
+browser [http://localhost:8080](http://localhost:8080) to load the Application.
 
 ***Service is under active development...***
 
