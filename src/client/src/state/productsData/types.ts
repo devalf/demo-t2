@@ -10,7 +10,7 @@ export enum Actions {
 export type Product = {
     about: string;
     company: string;
-    guid: string;
+    id: string;
     picture: string;
     price: number;
     registered: string;
