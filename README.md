@@ -9,10 +9,13 @@ They are Docker, Node.js, Express.js, React.js, Redux, MongoDB, related tools an
 Please copy root file `.env.example` to `.env`, fill the variables with necessary values.
 Then in the project directory run command
 
-`docker-compose -f docker-compose.yml up --build`
+`docker-compose up --build`
 
 wait for a while for running all necessary processes. Then open in the
 browser [http://localhost:8080](http://localhost:8080) to load the Application.
+
+To run dev version run 
+`docker-compose -f docker-compose.dev.yml up --build` 
 
 ***Service is under active development...***
 

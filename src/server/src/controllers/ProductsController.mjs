@@ -1,5 +1,10 @@
 import Product, {productData} from '../models/ProductModel.mjs';
-import {errorResponse, successResponseWithData, validationErrorWithData} from '../helpers/apiResponse.mjs';
+import {
+    errorResponse,
+    successResponseWithData,
+    validationErrorWithData,
+    notFoundResponse
+} from '../helpers/apiResponse.mjs';
 import {transformCollectionPickKeys} from '../utils/dataTransformation.mjs';
 
 export const allProductsList = [
@@ -31,6 +36,28 @@ export const allProductsList = [
             successResponseWithData(res, {
                 products: transformCollectionPickKeys(products, productData),
                 totalCount: count
+            });
+        } catch (e) {
+            return errorResponse(res, e);
+        }
+    }
+];
+
+export const singleProduct = [
+    async (req, res) => {
+        let {params: {id}} = req;
+
+        try {
+            const singleProductData = await Product.findById(id);
+
+            if (singleProductData === null) {
+                notFoundResponse(res, 'product not found');
+
+                return;
+            }
+
+            successResponseWithData(res, {
+                product: singleProductData
             });
         } catch (e) {
             return errorResponse(res, e);

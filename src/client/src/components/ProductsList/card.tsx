@@ -10,10 +10,10 @@ import {buildLinkToProductPage} from 'constants/routes';
 import styles from './styles.scss';
 
 const ProductCard = (props: Product) => {
-    const {about, company, guid, picture, price, registered, tags, title} = props;
+    const {about, company, id, picture, price, registered, tags, title} = props;
 
     const onAddToCartClick = () => {
-        console.log(`Add to cart ${guid} - TBD`);
+        console.log(`Add to cart ${id} - TBD`);
     };
 
     return (
@@ -56,7 +56,7 @@ const ProductCard = (props: Product) => {
                     </button>
                     <NavLink
                         className='btn btn-md btn-block btn-outline-info'
-                        to={buildLinkToProductPage(guid)}
+                        to={buildLinkToProductPage(id)}
                         role='button'
                     >
                         More
