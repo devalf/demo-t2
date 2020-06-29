@@ -5,8 +5,10 @@ export const transformCollectionPickKeys = (collection=[], keys) => {
         return [];
     }
 
-    return collection.map(({_id: id, ...rest}) => ({
-        id,
-        ...pick(rest, keys)
-    }));
+    return collection.map((entity) => transformEntityPickKeys(entity, keys));
 };
+
+export const transformEntityPickKeys = ({_id: id, ...rest}={}, keys) => ({
+    id,
+    ...pick(rest, keys)
+});

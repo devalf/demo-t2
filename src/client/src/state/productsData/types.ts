@@ -1,11 +1,18 @@
 import {Requesting} from 'state/utils/reducers/types';
 
 export enum Actions {
-    startRequest = 'START_REQUEST_PRODUCTS',
-    successRequest = 'SUCCESS_REQUEST_PRODUCTS',
-    errorRequest = 'ERROR_REQUEST_PRODUCTS',
-    resetProductsState = 'RESET_PRODUCTS_STATE'
+    startRequestProducts = 'START_REQUEST_PRODUCTS',
+    successRequestProducts = 'SUCCESS_REQUEST_PRODUCTS',
+    errorRequestProducts = 'ERROR_REQUEST_PRODUCTS',
+    resetProductsState = 'RESET_PRODUCTS_STATE',
+    startRequestProduct = 'START_REQUEST_PRODUCT',
+    successRequestProduct = 'SUCCESS_REQUEST_PRODUCT',
+    errorRequestProduct = 'ERROR_REQUEST_PRODUCT'
 }
+
+export type ID = {
+    id: string;
+};
 
 export type Product = {
     about: string;
@@ -18,20 +25,18 @@ export type Product = {
     title: string;
 };
 
-export type ProductNormalized = Product & {
-    id: string;
-};
+export type ProductNormalized = Product & ID;
 
 export type Products = {
     products: Product[];
 };
 
 export type StartRequest = {
-    type: Actions.startRequest;
+    type: Actions.startRequestProducts | Actions.startRequestProduct;
 };
 
 export type AddProducts = {
-    type: Actions.successRequest;
+    type: Actions.successRequestProducts;
     payload: Products & {
         totalCount: number;
         isNew?: boolean;
@@ -39,7 +44,7 @@ export type AddProducts = {
 };
 
 export type ErrorRequest = {
-    type: Actions.errorRequest;
+    type: Actions.errorRequestProducts;
     payload: Requesting;
 };
 

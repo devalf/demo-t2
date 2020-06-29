@@ -2,16 +2,19 @@ import {Dispatch} from 'redux';
 
 import API from 'utils/API';
 import {extractDataFromRequest} from 'utils/dataHandlers';
-import {getAllProducts} from 'constants/endpoints';
-import {StartRequest, AddProducts, ErrorRequest, Actions, FetchProductsOptions, ResetProducts} from './types';
+import {getAllProducts, getSingleProduct} from 'constants/endpoints';
+import {
+    ID, StartRequest, AddProducts, ErrorRequest, Actions,
+    FetchProductsOptions, ResetProducts, Product
+} from './types';
 import {ENTITIES_OFFSET} from 'constants/fetchOptions';
 
-const startRequest = (): StartRequest => ({
-    type: Actions.startRequest
+const startRequestProducts = (): StartRequest => ({
+    type: Actions.startRequestProducts
 });
 
 const addProducts = ({products, totalCount}, isNew): AddProducts => ({
-    type: Actions.successRequest,
+    type: Actions.successRequestProducts,
     payload: {
         products,
         totalCount,
@@ -19,8 +22,15 @@ const addProducts = ({products, totalCount}, isNew): AddProducts => ({
     }
 });
 
+const insertOrUpdateProducts = (product: Product) => ({
+    type: Actions.successRequestProduct,
+    payload: {
+        product
+    }
+});
+
 const errorRequest = (error): ErrorRequest => ({
-    type: Actions.errorRequest,
+    type: Actions.errorRequestProducts,
     payload: {
         error,
         isLoading: false
@@ -31,9 +41,13 @@ export const resetProductsState = (): ResetProducts => ({
     type: Actions.resetProductsState
 });
 
+const startRequestProduct = (): StartRequest => ({
+    type: Actions.startRequestProduct
+});
+
 export const fetchProducts = (options?: FetchProductsOptions) =>
     async (dispatch: Dispatch, getState): Promise<void> => {
-        dispatch(startRequest());
+        dispatch(startRequestProducts());
 
         const {productsData: {filters: filtersSate}} = getState();
         const filtersParams = {...filtersSate};
@@ -51,3 +65,15 @@ export const fetchProducts = (options?: FetchProductsOptions) =>
             dispatch(errorRequest(err));
         }
     };
+
+export const fetchProduct = (id: ID['id']) => async (dispatch: Dispatch): Promise<void> => {
+    dispatch(startRequestProduct());
+
+    try {
+        const {product} = extractDataFromRequest(await API.get(getSingleProduct(id)));
+
+        dispatch(insertOrUpdateProducts(product));
+    } catch (err) {
+        console.error(err);
+    }
+};
