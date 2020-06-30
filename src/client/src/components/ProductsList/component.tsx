@@ -20,10 +20,6 @@ export default class ProductsList extends Component<Props> {
         this.props.fetchProducts();
     }
 
-    componentWillUnmount() {
-        this.props.resetProductsState();
-    }
-
     fetchMoreProducts = () => {
         this.props.fetchProducts({loadMore: true});
     }

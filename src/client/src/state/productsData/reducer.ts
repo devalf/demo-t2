@@ -26,8 +26,7 @@ const insertProducts = (state, {payload: {products, totalCount, isNew}}) => {
         },
         result: {
             products: [
-                ...state.result.products,
-                ...newProducts.result.products
+                ...new Set([...state.result.products, ...newProducts.result.products])
             ]
         },
         filters: {
@@ -37,9 +36,30 @@ const insertProducts = (state, {payload: {products, totalCount, isNew}}) => {
     };
 };
 
+const insertOrUpdateProduct = (state, {payload: {product}}) => {
+    const newProductNormalized = normalizeData({products: [product]});
+
+    return {
+        ...state,
+        isLoading: false,
+        entities: {
+            products: {
+                ...state.entities.products,
+                ...newProductNormalized.entities.products
+            }
+        },
+        result: {
+            products: [
+                ...new Set([...state.result.products, ...newProductNormalized.result.products])
+            ]
+        }
+    };
+};
+
 export const productsData = createReducer(initialProductsState, {
-    [Actions.startRequest]: requestStartReducer,
-    [Actions.successRequest]: insertProducts,
-    [Actions.errorRequest]: requestErrorReducer,
-    [Actions.resetProductsState]: () => initialProductsState
+    [Actions.startRequestProducts]: requestStartReducer,
+    [Actions.successRequestProducts]: insertProducts,
+    [Actions.errorRequestProducts]: requestErrorReducer,
+    [Actions.resetProductsState]: () => initialProductsState,
+    [Actions.successRequestProduct]: insertOrUpdateProduct
 });

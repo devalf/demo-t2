@@ -17,6 +17,19 @@ export const selectProducts = createSelector(
     (result, entities) => result.map((id) => entities[id])
 );
 
+const selectProductId = (_, props) => {
+    try {
+        return props.match.params.id;
+    } catch (e) {
+        return null;
+    }
+};
+
+export const selectProduct = createSelector(
+    selectEntities,
+    selectProductId,
+    (entitiesMap, id) => id && entitiesMap?.[id]
+);
 
 export const selectIsLoading = createSelector(
     selectProductsData,

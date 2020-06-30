@@ -5,7 +5,7 @@ import {
     validationErrorWithData,
     notFoundResponse
 } from '../helpers/apiResponse.mjs';
-import {transformCollectionPickKeys} from '../utils/dataTransformation.mjs';
+import {transformCollectionPickKeys, transformEntityPickKeys} from '../utils/dataTransformation.mjs';
 
 export const allProductsList = [
     async (req, res) => {
@@ -57,7 +57,7 @@ export const singleProduct = [
             }
 
             successResponseWithData(res, {
-                product: singleProductData
+                product: transformEntityPickKeys(singleProductData.toObject(), productData)
             });
         } catch (e) {
             return errorResponse(res, e);
