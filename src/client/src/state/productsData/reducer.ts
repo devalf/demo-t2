@@ -61,5 +61,6 @@ export const productsData = createReducer(initialProductsState, {
     [Actions.successRequestProducts]: insertProducts,
     [Actions.errorRequestProducts]: requestErrorReducer,
     [Actions.resetProductsState]: () => initialProductsState,
+    [Actions.startRequestProduct]: requestStartReducer,
     [Actions.successRequestProduct]: insertOrUpdateProduct
 });
