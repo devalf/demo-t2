@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('./fonts/icomoon.eot?bk2k5g');
-  src:  url('./fonts/icomoon.eot?bk2k5g#iefix') format('embedded-opentype'),
-    url('./fonts/icomoon.ttf?bk2k5g') format('truetype'),
-    url('./fonts/icomoon.woff?bk2k5g') format('woff'),
-    url('./fonts/icomoon.svg?bk2k5g#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?iyrtb0');
+  src:  url('fonts/icomoon.eot?iyrtb0#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?iyrtb0') format('truetype'),
+    url('fonts/icomoon.woff?iyrtb0') format('woff'),
+    url('fonts/icomoon.svg?iyrtb0#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -37,9 +37,27 @@
 .icon-images:before {
   content: "\e90e";
 }
+.icon-cart:before {
+  content: "\e93a";
+}
+.icon-coin-dollar:before {
+  content: "\e93b";
+}
+.icon-location2:before {
+  content: "\e948";
+}
 .icon-floppy-disk:before {
   content: "\e962";
 }
 .icon-spinner11:before {
   content: "\e984";
+}
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+.icon-star-half:before {
+  content: "\e9d8";
+}
+.icon-star-full:before {
+  content: "\e9d9";
 }
