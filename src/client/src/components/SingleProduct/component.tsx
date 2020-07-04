@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, ReactElement} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 
 import {Product} from 'state/productsData/types';
 import Loader from 'components/utils/Loader';
-import Rating from 'components/utils/Rating';
+import Rating, {MIN_RATING_VALUE, MAX_RATING_VALUE} from 'components/utils/Rating';
 
 type Props = {
     product: Product;
@@ -11,10 +11,12 @@ type Props = {
     isLoading: boolean;
 } & RouteComponentProps<{id: string}>;
 
-const SingleProduct = ({product, fetchProduct, match, isLoading}: Props) => {
+const SingleProduct = ({product, fetchProduct, match, isLoading}: Props): ReactElement => {
     useEffect(() => {
         fetchProduct(match.params.id);
     }, []);
+
+    const generateRandomRating = (): number => Math.random() * (MAX_RATING_VALUE - MIN_RATING_VALUE) + MIN_RATING_VALUE;
 
     return (
         <div className='p-3'>
@@ -31,7 +33,7 @@ const SingleProduct = ({product, fetchProduct, match, isLoading}: Props) => {
                         <span className='text-success'>50% OFF</span>
                     </div>
                     <div className='d-flex flex-row'>
-                        <Rating className='mr-2' /> {/* just to mock UI */}
+                        <Rating className='mr-2' value={generateRandomRating()} />
                         <span className='font-weight-light'>111 ratings &amp; 222 reviews</span>
                     </div>
                     <div className='d-flex align-items-center mt-3 delivery'>
