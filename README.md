@@ -18,8 +18,3 @@ To run dev version of project, execute the following command
 `docker-compose -f docker-compose.dev.yml up --build` 
 
 ***Service is under active development...***
-
-
-## License
-
-Copyright (c) 2020. Licensed under the MIT License.
