@@ -10,7 +10,7 @@ import {indexRouter} from './routes/index.mjs';
 import {apiRouter} from './routes/api/index.mjs';
 import {notFoundResponse} from 'demossd/apiResponse';
 
-const {MONGODB_URL, MONGO_DB_USERNAME, MONGO_DB_PASSWORD} = process.env;
+const {MONGODB_URL, MONGO_DB_USERNAME, MONGO_DB_PASSWORD, PORT_API_SERVER} = process.env;
 
 (async () => {
     try {
@@ -40,7 +40,7 @@ app.all('*', function(req, res) {
     return notFoundResponse(res, 'Page not found');
 });
 
-http.listen('8081', function() {
+http.listen(PORT_API_SERVER, function() {
     // eslint-disable-next-line no-console
-    console.log('listening on *:8081');
+    console.log(`listening on *: ${PORT_API_SERVER}`);
 });

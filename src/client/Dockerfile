@@ -1,8 +1,11 @@
 FROM node:10-alpine as build-stage
 
-RUN mkdir -p /usr/src/app
+ARG PORT_CLIENT
+ARG PORT_API_SERVER
 
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/client-app
+
+WORKDIR /usr/src/client-app
 
 COPY package*.json ./
 
@@ -14,7 +17,7 @@ RUN npm run build-prod
 
 FROM nginx:alpine as production-stage
 
-COPY --from=build-stage /usr/src/app/dist /usr/share/nginx/html
+COPY --from=build-stage /usr/src/client-app/dist /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 

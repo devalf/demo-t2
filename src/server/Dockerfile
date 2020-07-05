@@ -10,6 +10,6 @@ RUN npm i --silent
 
 COPY . .
 
-EXPOSE 8081
+EXPOSE $PORT_API_SERVER
 
 CMD ["npm", "start"]
