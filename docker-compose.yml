@@ -11,8 +11,8 @@ services:
         - PORT_API_SERVER=$PORT_API_SERVER
     image: devalf/client
     environment:
-      - PORT_CLIENT=${PORT_CLIENT}
-      - PORT_API_SERVER=${PORT_API_SERVER}
+      PORT_CLIENT: ${PORT_CLIENT}
+      PORT_API_SERVER: ${PORT_API_SERVER}
     ports:
       - ${PORT_CLIENT}:80
     volumes:
