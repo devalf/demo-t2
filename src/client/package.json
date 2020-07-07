@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development --env.PORT_CLIENT=$PORT_CLIENT --env.PORT_API_SERVER=$PORT_API_SERVER",
-    "build-prod": "webpack -p -d --env.PORT_CLIENT=$PORT_CLIENT --env.PORT_API_SERVER=$PORT_API_SERVER",
-    "start": "webpack-dev-server --hot --mode development --env.PORT_CLIENT=$PORT_CLIENT --env.PORT_API_SERVER=$PORT_API_SERVER"
+    "build-dev": "webpack -d --mode development",
+    "build-prod": "webpack -p -d",
+    "start": "webpack-dev-server --hot --mode development"
   },
   "author": "Oleksiy Petrychko",
   "license": "MIT",
