@@ -1,12 +1,11 @@
-import React, {ReactElement} from 'react';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-export const Header = (): ReactElement => {
-    return (
-        <header>
-            <nav className='bg-secondary navbar navbar-dark navbar-expand-lg'>
-                <Link className='navbar-brand' to='/'>Home</Link>
-            </nav>
-        </header>
-    );
-};
+import Component from './component';
+
+import {selectCartContents} from 'state/cart/selectors';
+
+const mapStateToProps = (state) => ({
+    contents: selectCartContents(state)
+});
+
+export default connect(mapStateToProps)(Component);

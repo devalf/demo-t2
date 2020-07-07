@@ -9,9 +9,10 @@ type Props = {
     product: Product;
     fetchProduct: (id: string) => void;
     isLoading: boolean;
+    addToCart: (product: Product) => void;
 } & RouteComponentProps<{id: string}>;
 
-const SingleProduct = ({product, fetchProduct, match, isLoading}: Props): ReactElement => {
+const SingleProduct = ({product, fetchProduct, match, isLoading, addToCart}: Props): ReactElement => {
     useEffect(() => {
         fetchProduct(match.params.id);
     }, []);
@@ -56,7 +57,7 @@ const SingleProduct = ({product, fetchProduct, match, isLoading}: Props): ReactE
                         <button
                             className='btn btn-outline-primary mr-2'
                             type='button'
-                            onClick={() => console.log('Add to cart - TBD')}
+                            onClick={() => addToCart(product)}
                         >
                             ADD TO CART
                         </button>

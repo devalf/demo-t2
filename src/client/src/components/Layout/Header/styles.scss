@@ -1,0 +1,30 @@
+@import 'src/css/abstracts/variables';
+
+$badge-dimension: 1.2rem;
+
+.cartContainer {
+  position: relative;
+}
+.cartIcon {
+  font-size: $font-bigger-s;
+  border: 1.4px solid;
+  border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.cartItemsBadge {
+  background-color: var(--warning);
+  color: var(--light);
+  font-size: $font-small;
+  border-radius: 50%;
+  position: absolute;
+  top: -.35rem;
+  right: -.35rem;
+  width: $badge-dimension;
+  height: $badge-dimension;
+  text-align: center;
+  line-height: $badge-dimension;
+}

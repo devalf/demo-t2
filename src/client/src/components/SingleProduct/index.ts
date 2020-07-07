@@ -5,6 +5,7 @@ import Component from './component';
 
 import {selectProduct, selectIsLoading} from 'state/productsData/selectors';
 import {fetchProduct} from 'state/productsData/actions';
+import {addToCart} from 'state/cart/actions';
 
 const mapStateToProps = (state, props) => ({
     isLoading: selectIsLoading(state),
@@ -12,7 +13,8 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchProduct: (id) => dispatch(fetchProduct(id))
+    fetchProduct: (id) => dispatch(fetchProduct(id)),
+    addToCart: (product) => dispatch(addToCart(product))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Component));
