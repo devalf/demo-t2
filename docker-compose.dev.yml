@@ -7,8 +7,11 @@ services:
       context: ./src/client
       dockerfile: Dockerfile.dev
     image: devalf/client_dev
+    environment:
+      PORT_CLIENT: ${PORT_CLIENT}
+      PORT_API_SERVER: ${PORT_API_SERVER}
     ports:
-      - '8080:8080'
+      - ${PORT_CLIENT}:${PORT_CLIENT}
     volumes:
       - ./src/client:/usr/src/client-app
       - /usr/src/client-app/node_modules
@@ -20,7 +23,7 @@ services:
       dockerfile: Dockerfile
     image: devalf/server_dev
     ports:
-      - '8081:8081'
+      - ${PORT_API_SERVER}:${PORT_API_SERVER}
     volumes:
       - ./src/server:/usr/src/server-app
       - /usr/src/server-app/node_modules
@@ -32,6 +35,7 @@ services:
       - MONGODB_URL=mongodb://mongo-db:27017/demo-t2
       - MONGO_DB_USERNAME=${DB_USERNAME}
       - MONGO_DB_PASSWORD=${DB_PASSWORD}
+      - PORT_API_SERVER=${PORT_API_SERVER}
 
   mongo-db:
     container_name: mongo_dev

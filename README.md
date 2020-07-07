@@ -12,7 +12,7 @@ Then in the project directory run command
 `docker-compose up --build`
 
 wait for a while for running all necessary processes. Then open in the
-browser [http://localhost:8080](http://localhost:8080) to load the Application.
+browser [http://localhost:8080](http://localhost:8080) (or use your own port value if set it in `.env`) to load the Application.
 
 To run dev version of project, execute the following command  
 `docker-compose -f docker-compose.dev.yml up --build` 
