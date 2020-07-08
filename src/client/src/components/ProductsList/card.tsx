@@ -6,15 +6,16 @@ import moment from 'moment';
 import {Product} from 'state/productsData/types';
 import {standardDate} from 'constants/formatTime';
 import {buildLinkToProductPage} from 'constants/routes';
+import {Props as ComponentProps} from './component';
 
 import styles from './styles.scss';
 
-const ProductCard = (props: Product) => {
-    const {about, company, id, picture, price, registered, tags, title} = props;
+type Props = Product & Pick<ComponentProps, 'addToCart'>;
 
-    const onAddToCartClick = () => {
-        console.log(`Add to cart ${id} - TBD`);
-    };
+const ProductCard = (props: Props) => {
+    const {about, company, id, picture, price, registered, tags, title, addToCart} = props;
+
+    const onAddToCartClick = () => addToCart(props);
 
     return (
         <div className={'col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch'}>
