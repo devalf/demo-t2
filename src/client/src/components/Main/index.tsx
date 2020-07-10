@@ -6,6 +6,7 @@ import Header from 'components/Layout/Header';
 import ProductsList from 'components/ProductsList';
 import SingleProduct from 'components/SingleProduct';
 import NoMatch from 'components/NoMatch';
+import Modal from 'components/Modal';
 import {singleProductPageRoute} from 'constants/routes';
 
 import styles from './styles.scss';
@@ -27,6 +28,7 @@ export default class Main extends Component {
                         </Switch>
                     </Router>
                 </ErrorBoundary>
+                <Modal />
             </div>
         );
     }

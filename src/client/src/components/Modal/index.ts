@@ -1,16 +1,15 @@
 import {connect} from 'react-redux';
 
 import Component from './component';
-
-import {selectCartContents} from 'state/cart/selectors';
-import {openModal} from 'state/modal/actions';
+import {selectModalId} from 'state/modal/selectors';
+import {closeModal} from 'state/modal/actions';
 
 const mapStateToProps = (state) => ({
-    contents: selectCartContents(state)
+    openedModalId: selectModalId(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    openCartModal: () => dispatch(openModal({id: 'CART_MODAL'}))
+    closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

@@ -8,16 +8,17 @@ import styles from './styles.scss';
 
 type Props = {
     contents: State;
+    openCartModal: () => void;
 };
 
-const Header = ({contents}: Props): ReactElement => {
+const Header = ({contents, openCartModal}: Props): ReactElement => {
     const cartItemsSum = Object.keys(contents).length;
 
     return (
         <header>
             <nav className='bg-secondary navbar navbar-dark'>
                 <Link className='navbar-brand' to='/'>Home</Link>
-                <div className={cx('d-flex', styles.cartContainer)}>
+                <div className={cx('d-flex', styles.cartContainer)} onClick={() => openCartModal()}>
                     <span className={cx('icon-cart text-light p-2', styles.cartIcon)} />
                     {(cartItemsSum > 0) && <div className={cx('', styles.cartItemsBadge)}>
                         {cartItemsSum}
