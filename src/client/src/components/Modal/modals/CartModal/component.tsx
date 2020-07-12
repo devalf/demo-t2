@@ -1,30 +1,55 @@
 import React from 'react';
 import {ModalHeader, ModalBody, ModalFooter} from 'shards-react';
-import {isEmpty} from 'lodash';
 
+import CartItem from './CartItem';
 import {State} from 'state/cart/types';
 
 type Props = {
     cartContents: State['contents'];
+    cartItemsCount: number;
+    toggle: () => void;
+    removeItemFromCart: ({}) => void;
 };
 
-const CartModal = ({cartContents}: Props) => {
+const CartModal = ({cartContents, cartItemsCount, toggle, removeItemFromCart}: Props) => {
+    const itemRemoveHandler = (id: string) => () => {
+        removeItemFromCart({id});
+    };
+
     return (
         <>
-            <ModalHeader className='justify-content-center'>Cart</ModalHeader>
+            <ModalHeader toggle={toggle}>
+                Shopping Cart
+            </ModalHeader>
             <ModalBody>
-                {Object.keys(cartContents).map((cartItem) => {
-                    return <div className='mb-3' key={cartItem}>
-                        <h5 className='d-inline pr-4'>{cartContents[cartItem].title}</h5>
-                        <span>${cartContents[cartItem].price}</span>
-                    </div>;
-                })}
+                {cartItemsCount
+                    ? <>
+                        <div className='text-muted mb-4'>
+                            {cartItemsCount}&nbsp;
+                            item
+                            {(cartItemsCount > 1) && 's'}
+                        </div>
 
-                {isEmpty(cartContents) && <i>cart is empty</i>}
+                        {Object.keys(cartContents).map((cartItemId) =>
+                            <CartItem
+                                key={cartItemId}
+                                item={cartContents[cartItemId]}
+                                onRemoveClick={itemRemoveHandler(cartItemId)}
+                            />
+                        )}
+                    </>
+                    : <i>cart is empty</i>
+                }
             </ModalBody>
-            <ModalFooter className='justify-content-start'>
-                <i>this component is under active development... <br/> changes coming soon</i>
-            </ModalFooter>
+            {(cartItemsCount > 0) && <ModalFooter>
+                <button
+                    className='btn btn-outline-success'
+                    type='button'
+                    onClick={() => console.log('Buy - TBD')}
+                >
+                    BUY
+                </button>
+            </ModalFooter>}
         </>
     );
 };

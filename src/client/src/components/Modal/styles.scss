@@ -1,0 +1,17 @@
+// bug fixes and overrides for third party tool
+
+.modalContainer {
+  :global(.close) {
+    &:focus {
+      outline: none;
+    }
+
+    & > span {
+      vertical-align: sub;
+    }
+  }
+}
+
+.overlay {
+  opacity: .75 !important;
+}

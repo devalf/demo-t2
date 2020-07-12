@@ -2,26 +2,22 @@ import React, {ReactElement} from 'react';
 import {Link} from 'react-router-dom';
 import cx from 'classnames';
 
-import {State} from 'state/cart/types';
-
 import styles from './styles.scss';
 
 type Props = {
-    contents: State;
+    cartItemsCount: number;
     openCartModal: () => void;
 };
 
-const Header = ({contents, openCartModal}: Props): ReactElement => {
-    const cartItemsSum = Object.keys(contents).length;
-
+const Header = ({cartItemsCount, openCartModal}: Props): ReactElement => {
     return (
         <header>
             <nav className='bg-secondary navbar navbar-dark'>
                 <Link className='navbar-brand' to='/'>Home</Link>
                 <div className={cx('d-flex', styles.cartContainer)} onClick={() => openCartModal()}>
                     <span className={cx('icon-cart text-light p-2', styles.cartIcon)} />
-                    {(cartItemsSum > 0) && <div className={cx('', styles.cartItemsBadge)}>
-                        {cartItemsSum}
+                    {(cartItemsCount > 0) && <div className={cx('', styles.cartItemsBadge)}>
+                        {cartItemsCount}
                     </div>}
                 </div>
             </nav>

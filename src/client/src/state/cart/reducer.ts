@@ -1,19 +1,32 @@
 import {createReducer} from 'state/utils/createReducer';
-import {actionTypes} from './actions';
 import {cart as initialState} from './initialState';
-import {State} from './types';
+import {State, Actions} from './types';
 
-const addToCart = (state, {payload: {id, title, price}}): State => ({
+const addToCart = (state, {payload: {id, title, price, picture}}): State => ({
     ...state,
     contents: {
         ...state.contents,
         [id]: {
             title,
-            price
+            price,
+            picture
         }
     }
 });
 
+const removeFromCart = (state, {payload: {id}}): State => {
+    // eslint-disable-next-line no-unused-vars
+    const {contents: {[id]: removedItem, ...rest}} = state;
+
+    return {
+        ...state,
+        contents: {
+            ...rest
+        }
+    };
+};
+
 export const cart = createReducer(initialState, {
-    [actionTypes.addToCart]: addToCart
+    [Actions.addToCart]: addToCart,
+    [Actions.removeFromCart]: removeFromCart
 });

@@ -1,0 +1,8 @@
+@import 'src/css/abstracts/variables';
+
+.close {
+  font-size: $font-small;
+  &:hover {
+    cursor: pointer;
+  }
+}
