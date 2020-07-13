@@ -16,7 +16,7 @@ const CartItem = ({item, onRemoveClick}: Props) => {
             <hr />
             <div className='row main align-items-center'>
                 <div className='col-2'>
-                    <img className='img-fluid' src={item.picture} />
+                    <img className={cx('img-fluid', styles.itemImage)} src={item.picture} />
                 </div>
                 <div className='col'>
                     <div className='row'>{item.title}</div>

@@ -5,9 +5,10 @@ import ErrorBoundary from 'components/ErrorBoundary';
 import Header from 'components/Layout/Header';
 import ProductsList from 'components/ProductsList';
 import SingleProduct from 'components/SingleProduct';
+import OrderPage from 'components/OrderPage';
 import NoMatch from 'components/NoMatch';
 import Modal from 'components/Modal';
-import {singleProductPageRoute} from 'constants/routes';
+import {singleProductPageRoute, orderPageRoute} from 'constants/routes';
 
 import styles from './styles.scss';
 
@@ -21,14 +22,18 @@ export default class Main extends Component {
 
                         <Switch>
                             <Route exact path='/' component={ProductsList} />
+
                             <Route path={singleProductPageRoute} >
                                 <SingleProduct />
                             </Route>
+
+                            <Route path={orderPageRoute} component={OrderPage} />
                             <Route component={NoMatch} />
                         </Switch>
+
+                        <Modal />
                     </Router>
                 </ErrorBoundary>
-                <Modal />
             </div>
         );
     }

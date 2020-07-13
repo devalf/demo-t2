@@ -3,7 +3,9 @@ import {RouteComponentProps} from 'react-router-dom';
 
 import {Product} from 'state/productsData/types';
 import Loader from 'components/utils/Loader';
+import LinkButton from 'components/utils/LinkButton/component';
 import Rating, {MIN_RATING_VALUE, MAX_RATING_VALUE} from 'components/utils/Rating';
+import {orderPageRoute} from 'constants/routes';
 
 type Props = {
     product: Product;
@@ -61,13 +63,14 @@ const SingleProduct = ({product, fetchProduct, match, isLoading, addToCart}: Pro
                         >
                             ADD TO CART
                         </button>
-                        <button
-                            className='btn btn-outline-success'
-                            type='button'
-                            onClick={() => console.log('Buy now - TBD')}
+
+                        <LinkButton
+                            className={'btn-outline-success'}
+                            to={orderPageRoute}
+                            onButtonClick={() => addToCart(product)}
                         >
                             BUY NOW
-                        </button>
+                        </LinkButton>
                     </div>
                 </div>
             </>}

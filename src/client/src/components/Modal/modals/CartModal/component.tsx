@@ -2,7 +2,9 @@ import React from 'react';
 import {ModalHeader, ModalBody, ModalFooter} from 'shards-react';
 
 import CartItem from './CartItem';
+import LinkButton from 'components/utils/LinkButton/component';
 import {State} from 'state/cart/types';
+import {orderPageRoute} from 'constants/routes';
 
 type Props = {
     cartContents: State['contents'];
@@ -42,13 +44,13 @@ const CartModal = ({cartContents, cartItemsCount, toggle, removeItemFromCart}: P
                 }
             </ModalBody>
             {(cartItemsCount > 0) && <ModalFooter>
-                <button
-                    className='btn btn-outline-success'
-                    type='button'
-                    onClick={() => console.log('Buy - TBD')}
+                <LinkButton
+                    className={'btn-outline-success'}
+                    to={orderPageRoute}
+                    onButtonClick={toggle}
                 >
                     BUY
-                </button>
+                </LinkButton>
             </ModalFooter>}
         </>
     );

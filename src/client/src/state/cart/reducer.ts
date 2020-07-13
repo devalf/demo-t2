@@ -1,6 +1,7 @@
 import {createReducer} from 'state/utils/createReducer';
 import {cart as initialState} from './initialState';
 import {State, Actions} from './types';
+import {omit} from 'lodash';
 
 const addToCart = (state, {payload: {id, title, price, picture}}): State => ({
     ...state,
@@ -15,13 +16,12 @@ const addToCart = (state, {payload: {id, title, price, picture}}): State => ({
 });
 
 const removeFromCart = (state, {payload: {id}}): State => {
-    // eslint-disable-next-line no-unused-vars
-    const {contents: {[id]: removedItem, ...rest}} = state;
+    const {contents} = state;
 
     return {
         ...state,
         contents: {
-            ...rest
+            ...omit(contents, [id])
         }
     };
 };

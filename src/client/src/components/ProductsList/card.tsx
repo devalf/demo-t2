@@ -24,7 +24,11 @@ const ProductCard = (props: Props) => {
                     <h4 className='my-0 font-weight-normal'>{title}</h4>
                 </div>
                 <div className='card-body'>
-                    <img src={picture} alt='something went wrong' className={'img-thumbnail mb-2 mx-auto d-block'} />
+                    <img
+                        src={picture}
+                        alt={`${title} product pic`}
+                        className={cx('img-thumbnail mb-2 mx-auto d-block', styles.productImg)}
+                    />
                     <div className={cx('mb-1', styles.description)}>
                         {about}
                     </div>
