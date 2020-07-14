@@ -1,7 +1,7 @@
 import React from 'react';
 import {ModalHeader, ModalBody, ModalFooter} from 'shards-react';
 
-import CartItem from './CartItem';
+import CartItem from 'components/utils/CartItem';
 import LinkButton from 'components/utils/LinkButton/component';
 import {State} from 'state/cart/types';
 import {orderPageRoute} from 'constants/routes';
@@ -10,14 +10,9 @@ type Props = {
     cartContents: State['contents'];
     cartItemsCount: number;
     toggle: () => void;
-    removeItemFromCart: ({}) => void;
 };
 
-const CartModal = ({cartContents, cartItemsCount, toggle, removeItemFromCart}: Props) => {
-    const itemRemoveHandler = (id: string) => () => {
-        removeItemFromCart({id});
-    };
-
+const CartModal = ({cartContents, cartItemsCount, toggle}: Props) => {
     return (
         <>
             <ModalHeader toggle={toggle}>
@@ -35,8 +30,7 @@ const CartModal = ({cartContents, cartItemsCount, toggle, removeItemFromCart}: P
                         {Object.keys(cartContents).map((cartItemId) =>
                             <CartItem
                                 key={cartItemId}
-                                item={cartContents[cartItemId]}
-                                onRemoveClick={itemRemoveHandler(cartItemId)}
+                                item={{...cartContents[cartItemId], id: cartItemId}}
                             />
                         )}
                     </>

@@ -7,6 +7,8 @@ import LinkButton from 'components/utils/LinkButton/component';
 import Rating, {MIN_RATING_VALUE, MAX_RATING_VALUE} from 'components/utils/Rating';
 import {orderPageRoute} from 'constants/routes';
 
+import styles from './styles.scss';
+
 type Props = {
     product: Product;
     fetchProduct: (id: string) => void;
@@ -47,7 +49,7 @@ const SingleProduct = ({product, fetchProduct, match, isLoading, addToCart}: Pro
                     </div>
                     <hr />
                     <div>
-                        <img src={product.picture} alt={`product: ${product.title}`} />
+                        <img src={product.picture} alt={`product: ${product.title}`} className={styles.productImg} />
                     </div>
                     <hr />
                     <div>

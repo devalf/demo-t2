@@ -41,11 +41,11 @@ export default class ProductsList extends Component<Props> {
                 )}
             </div>}
 
-            <LoadMore
+            {showLoading || <LoadMore
                 onClick={this.fetchMoreProducts}
                 disabled={products.length === totalCount}
                 isLoading={isLoading}
-            />
+            />}
         </>;
     }
 }

@@ -6,11 +6,11 @@ import {CartItem} from 'state/cart/types';
 import styles from './styles.scss';
 
 type Props = {
-    item: CartItem;
-    onRemoveClick: () => void;
+    item: CartItem & {id: string};
+    removeItemFromCart: ({}) => void;
 };
 
-const CartItem = ({item, onRemoveClick}: Props) => {
+const CartItem = ({item, removeItemFromCart}: Props) => {
     return (
         <>
             <hr />
@@ -28,7 +28,7 @@ const CartItem = ({item, onRemoveClick}: Props) => {
                     $ {item.price}
                     <span
                         className={cx('float-right text-danger', styles.close)}
-                        onClick={onRemoveClick}
+                        onClick={() => removeItemFromCart({id: item.id})}
                     >
                         &#10005;
                     </span>
