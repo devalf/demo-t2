@@ -1,6 +1,7 @@
 import React, {Component, ReactElement} from 'react';
 import {withRouter, RouteComponentProps} from 'react-router-dom';
 
+import OrderForm from './form';
 import CartItem from 'components/utils/CartItem';
 import {State} from 'state/cart/types';
 
@@ -35,6 +36,8 @@ class OrderPage extends Component<Props> {
                         )}
                     </div>
                 </div>
+
+                <OrderForm />
 
                 <div>
                     <button className={'btn btn-primary'} onClick={() => this.props.history.goBack()}>Back</button>
