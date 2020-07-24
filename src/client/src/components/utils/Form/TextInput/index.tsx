@@ -10,16 +10,17 @@ type Props = {
 } & FieldProps;
 
 const TextInput = ({field, form, label, ...props}: Props): ReactElement => {
+    const {value, ...fieldRest} = field;
     const error = form.errors[field.name];
-
     const internalProps = {
         ...(error && {invalid: true})
     };
 
+
     return (
         <FormGroup className={cx('pb-1', styles.container)}>
             <label htmlFor='username'>{label}</label>
-            <FormInput {...field} {...props} {...internalProps} />
+            <FormInput {...fieldRest} {...props} {...internalProps} value={value || ''} />
 
             {error && <span className={cx('text-danger small', styles.errorMsg)}>{error}</span>}
         </FormGroup>
