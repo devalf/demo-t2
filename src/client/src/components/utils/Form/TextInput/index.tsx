@@ -1,7 +1,15 @@
 import React, {ReactElement} from 'react';
 import {FieldProps} from 'formik';
+import {FormGroup, FormInput} from 'shards-react';
+import cx from 'classnames';
 
-const TextInput = ({field, form, ...props}: FieldProps): ReactElement => {
+import styles from './styles.scss';
+
+type Props = {
+    label: string;
+} & FieldProps;
+
+const TextInput = ({field, form, label, ...props}: Props): ReactElement => {
     const error = form.errors[field.name];
 
     const internalProps = {
@@ -9,12 +17,12 @@ const TextInput = ({field, form, ...props}: FieldProps): ReactElement => {
     };
 
     return (
-        <div>
-            {/* TODO use here react-shards input */}
-            <input {...field} {...props} {...internalProps} />
+        <FormGroup className={cx('pb-1', styles.container)}>
+            <label htmlFor='username'>{label}</label>
+            <FormInput {...field} {...props} {...internalProps} />
 
-            {error && <span>{error}</span>}
-        </div>
+            {error && <span className={cx('text-danger small', styles.errorMsg)}>{error}</span>}
+        </FormGroup>
     );
 };
 
