@@ -3,7 +3,7 @@ import {Formik, Field, Form} from 'formik';
 import cx from 'classnames';
 
 import {TextInput} from 'components/utils/Form';
-import {composeValidators, required, minLength1} from 'utils/validation';
+import {composeValidators, required} from 'utils/validation';
 
 type Props = {
     disabled?: boolean;
@@ -20,14 +20,14 @@ export default class OrderForm extends Component<Props> {
                         name='first_name'
                         label='First name'
                         component={TextInput}
-                        validate={composeValidators(required, minLength1)}
+                        validate={composeValidators(required)}
                     />
 
                     <Field
                         name='last_name'
                         label='Last name'
                         component={TextInput}
-                        validate={composeValidators(required, minLength1)}
+                        validate={composeValidators(required)}
                     />
 
                     <button

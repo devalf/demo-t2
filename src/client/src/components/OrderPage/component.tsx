@@ -2,15 +2,16 @@ import React, {Component, ReactElement} from 'react';
 import {withRouter, RouteComponentProps} from 'react-router-dom';
 import cx from 'classnames';
 
-import OrderForm from './form';
-import CartItem from 'components/utils/CartItem';
+import ProductsForm from './productsForm';
+import OrderForm from './orderForm';
 import {State} from 'state/cart/types';
 
 import styles from './styles.scss';
 
-type Props = {
+export type Props = {
     cartItemsCount: number;
     cartContents: State['contents'];
+    totalPrice: number;
 } & RouteComponentProps;
 
 class OrderPage extends Component<Props> {
@@ -19,7 +20,7 @@ class OrderPage extends Component<Props> {
     }
 
     render(): ReactElement {
-        const {cartContents} = this.props;
+        const {cartContents, totalPrice} = this.props;
 
         return (
             <div className='m-4'>
@@ -35,19 +36,12 @@ class OrderPage extends Component<Props> {
 
                 <div className='mb-4 row'>
                     <div className='col-lg-6 offset-lg-3 col-md-8 offset-md-2'>
-                        {Object.keys(cartContents).map((cartItemId) =>
-                            <CartItem
-                                key={cartItemId}
-                                item={{...cartContents[cartItemId], id: cartItemId}}
-                            />
-                        )}
+                        <ProductsForm cartContents={cartContents} />
 
                         {this.isEmptyCart || <>
                             <hr />
 
-                            Total Price: $ {Object.values(cartContents).reduce((acc, {price}) => {
-                                return acc + Number(price);
-                            }, 0)}
+                            Total Price: $ {totalPrice}
                         </>}
                     </div>
                 </div>

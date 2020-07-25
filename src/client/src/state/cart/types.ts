@@ -2,7 +2,7 @@ export type CartItem = {
     title: string;
     price: string | number;
     picture: string;
-    count?: number;
+    count: number;
 };
 
 export type Payload = {
@@ -11,7 +11,8 @@ export type Payload = {
 
 export enum Actions {
     addToCart = 'ADD_TO_CART',
-    removeFromCart = 'REMOVE_FROM_CART'
+    removeFromCart = 'REMOVE_FROM_CART',
+    updateItemInCart = 'UPDATE_ITEM_IN_CART'
 }
 
 export type AddToCart = {
@@ -22,6 +23,11 @@ export type AddToCart = {
 export type RemoveFromCart = {
     type: Actions.removeFromCart;
     payload: Payload;
+};
+
+export type UpdateItemInCart = {
+    type: Actions.updateItemInCart,
+    payload: Payload & {count: number};
 };
 
 export type State = {

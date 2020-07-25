@@ -7,20 +7,34 @@ import styles from './styles.scss';
 
 type Props = {
     label: string;
+    type: 'password' | 'email' | 'number' | 'url' | 'tel' | 'search' | 'date'
+        | 'datetime' | 'datetime-local' | 'month' | 'week' | 'time';
+    onChangeHandler?: (val: string | number) => void;
 } & FieldProps;
 
-const TextInput = ({field, form, label, ...props}: Props): ReactElement => {
-    const {value, ...fieldRest} = field;
+const TextInput = (props: Props): ReactElement => {
+    const {field, form, label, type, onChangeHandler, ...rest} = props;
+    const {value='', ...fieldRest} = field;
     const error = form.errors[field.name];
-    const internalProps = {
-        ...(error && {invalid: true})
+
+    const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
+        if (onChangeHandler) {
+            onChangeHandler(e.currentTarget.value);
+        }
+
+        field.onChange(e);
     };
 
+    const internalProps = {
+        ...(error && {invalid: true}),
+        ...(type && {type}),
+        ...(onChangeHandler && {onChange: handleOnChange})
+    };
 
     return (
         <FormGroup className={cx('pb-1', styles.container)}>
             <label htmlFor='username'>{label}</label>
-            <FormInput {...fieldRest} {...props} {...internalProps} value={value || ''} />
+            <FormInput {...fieldRest} {...rest} {...internalProps} value={value} />
 
             {error && <span className={cx('text-danger small', styles.errorMsg)}>{error}</span>}
         </FormGroup>

@@ -10,7 +10,8 @@ const addToCart = (state, {payload: {id, title, price, picture}}): State => ({
         [id]: {
             title,
             price,
-            picture
+            picture,
+            count: 1
         }
     }
 });
@@ -26,7 +27,21 @@ const removeFromCart = (state, {payload: {id}}): State => {
     };
 };
 
+const upd = (state, {payload: {id, count}}) => {
+    return {
+        ...state,
+        contents: {
+            ...state.contents,
+            [id]: {
+                ...state.contents[id],
+                count
+            }
+        }
+    };
+};
+
 export const cart = createReducer(initialState, {
     [Actions.addToCart]: addToCart,
-    [Actions.removeFromCart]: removeFromCart
+    [Actions.removeFromCart]: removeFromCart,
+    [Actions.updateItemInCart]: upd
 });
