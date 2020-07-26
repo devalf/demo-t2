@@ -2,8 +2,8 @@ import React, {Component, ReactElement} from 'react';
 import {Formik, Field, Form} from 'formik';
 import cx from 'classnames';
 
-import {TextInput} from 'components/utils/Form';
-import {composeValidators, required} from 'utils/validation';
+import {TextInput, TextArea} from 'components/utils/Form';
+import {composeValidators, required, email} from 'utils/validation';
 
 type Props = {
     disabled?: boolean;
@@ -18,16 +18,28 @@ export default class OrderForm extends Component<Props> {
                 <Form className={cx({'disabled': disabled})}>
                     <Field
                         name='first_name'
-                        label='First name'
+                        label='First name *'
                         component={TextInput}
                         validate={composeValidators(required)}
                     />
 
                     <Field
                         name='last_name'
-                        label='Last name'
+                        label='Last name *'
                         component={TextInput}
                         validate={composeValidators(required)}
+                    />
+                    <Field
+                        name='email'
+                        label='Email *'
+                        component={TextInput}
+                        validate={composeValidators(required, email)}
+                    />
+
+                    <Field
+                        name='notes'
+                        label='Notes'
+                        component={TextArea}
                     />
 
                     <button

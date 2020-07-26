@@ -28,3 +28,8 @@ export const minValue = (min: number) => (value: number): Validation => {
 
     return value && (value < min) ? error : undefined;
 };
+
+export const email = (value: string) =>
+    value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(value)
+        ? 'Invalid email address'
+        : undefined;

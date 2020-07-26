@@ -42,6 +42,7 @@ const CartItem = (props: Props): ReactElement => {
                         type='number'
                         min={1}
                         onChangeHandler={(value: number) => updateItemInCart({id: item.id, count: Number(value)})}
+                        className={styles.countInput}
                     />
                 )}
 

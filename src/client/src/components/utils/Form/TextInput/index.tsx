@@ -3,7 +3,7 @@ import {FieldProps} from 'formik';
 import {FormGroup, FormInput} from 'shards-react';
 import cx from 'classnames';
 
-import styles from './styles.scss';
+import styles from '../styles.scss';
 
 type Props = {
     label: string;
@@ -14,7 +14,7 @@ type Props = {
 
 const TextInput = (props: Props): ReactElement => {
     const {field, form, label, type, onChangeHandler, ...rest} = props;
-    const {value='', ...fieldRest} = field;
+    const {value='', name, ...fieldRest} = field;
     const error = form.errors[field.name];
 
     const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -26,6 +26,9 @@ const TextInput = (props: Props): ReactElement => {
     };
 
     const internalProps = {
+        name,
+        value,
+        id: name,
         ...(error && {invalid: true}),
         ...(type && {type}),
         ...(onChangeHandler && {onChange: handleOnChange})
@@ -33,8 +36,8 @@ const TextInput = (props: Props): ReactElement => {
 
     return (
         <FormGroup className={cx('pb-1', styles.container)}>
-            <label htmlFor='username'>{label}</label>
-            <FormInput {...fieldRest} {...rest} {...internalProps} value={value} />
+            <label htmlFor={name}>{label}</label>
+            <FormInput {...fieldRest} {...rest} {...internalProps} />
 
             {error && <span className={cx('text-danger small', styles.errorMsg)}>{error}</span>}
         </FormGroup>
