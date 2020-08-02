@@ -14,7 +14,9 @@ export type Props = {
     cartContents: State['contents'];
     totalPrice: number;
     makeOrder: ({}) => void;
+    isLoading: boolean;
     successMessage: string;
+    error: string;
 } & RouteComponentProps;
 
 class OrderPage extends Component<Props> {
@@ -23,13 +25,14 @@ class OrderPage extends Component<Props> {
     }
 
     render(): ReactElement {
-        const {cartContents, totalPrice, successMessage} = this.props;
+        const {cartContents, totalPrice, successMessage, error} = this.props;
 
         return (
             <div className='m-4'>
                 <h3>Order page</h3>
 
                 <Alert text={successMessage} />
+                <Alert text={error} theme='danger' />
 
                 {this.isEmptyCart && <div className='mb-3 text-center'>
                     Cart is Empty

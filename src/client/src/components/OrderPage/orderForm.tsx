@@ -8,7 +8,7 @@ import {Props as ComponentProps} from './component';
 
 type Props = {
     disabled?: boolean;
-} & Pick<ComponentProps, 'makeOrder'>;
+} & Pick<ComponentProps, 'makeOrder' | 'isLoading'>;
 
 export default class OrderForm extends Component<Props> {
     handleSubmit = (values) => {
@@ -25,7 +25,6 @@ export default class OrderForm extends Component<Props> {
                         component={TextInput}
                         validate={composeValidators(required)}
                     />
-
                     <Field
                         name='last_name'
                         label='Last name *'
@@ -38,7 +37,6 @@ export default class OrderForm extends Component<Props> {
                         component={TextInput}
                         validate={composeValidators(required, email)}
                     />
-
                     <Field
                         name='notes'
                         label='Notes'
@@ -47,7 +45,10 @@ export default class OrderForm extends Component<Props> {
 
                     <button
                         type='submit'
-                        className='btn btn-md btn-block btn-secondary mt-5 mb-4'
+                        className={cx(
+                            'btn btn-md btn-block btn-secondary mt-5 mb-4',
+                            {'disabled': this.props.isLoading}
+                        )}
                     >
                         Submit
                     </button>

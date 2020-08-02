@@ -3,12 +3,13 @@ import {Alert} from 'shards-react';
 
 type Props = {
     text: string;
+    theme?: string;
 };
 
 // Component is too raw, and done for now only as success Alert, will refactored later
-const AlertComponent = ({text}: Props): ReactElement => {
+const AlertComponent = ({text, theme = 'success'}: Props): ReactElement => {
     return <>
-        {text && <Alert theme='success'>
+        {text && <Alert theme={theme}>
             {text}
         </Alert>}
     </>;

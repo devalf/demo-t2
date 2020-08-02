@@ -47,7 +47,8 @@ const makeOrderSuccess = (state, {payload: {message}}) => {
         ...state,
         isLoading: false,
         contents: {},
-        successMessage: message
+        successMessage: message,
+        error: undefined
     };
 };
 

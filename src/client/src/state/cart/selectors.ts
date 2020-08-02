@@ -23,8 +23,17 @@ export const selectCartContentsTotalPrice = createSelector(
         }, 0)
 );
 
+export const selectIsLoading = createSelector(
+    selectCartState,
+    ({isLoading}) => isLoading
+);
 
 export const selectSuccessMessage = createSelector(
     selectCartState,
     ({successMessage}) => successMessage
+);
+
+export const selectErrorMessage = createSelector(
+    selectCartState,
+    ({error}) => error
 );
