@@ -1,7 +1,9 @@
-import {createReducer} from 'state/utils/createReducer';
-import {cart as initialState} from './initialState';
-import {State, Actions} from './types';
 import {omit} from 'lodash';
+
+import {State, Actions} from './types';
+import {cart as initialState} from './initialState';
+import {createReducer} from 'state/utils/createReducer';
+import {requestErrorReducer, requestStartReducer} from 'state/utils/reducers/requesting';
 
 const addToCart = (state, {payload: {id, title, price, picture}}): State => ({
     ...state,
@@ -27,7 +29,7 @@ const removeFromCart = (state, {payload: {id}}): State => {
     };
 };
 
-const upd = (state, {payload: {id, count}}) => {
+const updateCart = (state, {payload: {id, count}}) => {
     return {
         ...state,
         contents: {
@@ -40,8 +42,28 @@ const upd = (state, {payload: {id, count}}) => {
     };
 };
 
+const makeOrderSuccess = (state, {payload: {message}}) => {
+    return {
+        ...state,
+        isLoading: false,
+        contents: {},
+        successMessage: message
+    };
+};
+
+const resetCartSuccessMessage = (state) => {
+    return {
+        ...state,
+        successMessage: undefined
+    };
+};
+
 export const cart = createReducer(initialState, {
     [Actions.addToCart]: addToCart,
     [Actions.removeFromCart]: removeFromCart,
-    [Actions.updateItemInCart]: upd
+    [Actions.updateItemInCart]: updateCart,
+    [Actions.startOrderRequest]: requestStartReducer,
+    [Actions.successOrderRequest]: makeOrderSuccess,
+    [Actions.errorOrderRequest]: requestErrorReducer,
+    [Actions.resetCartSuccessMessage]: resetCartSuccessMessage
 });

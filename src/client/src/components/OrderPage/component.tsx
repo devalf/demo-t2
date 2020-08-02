@@ -2,6 +2,7 @@ import React, {Component, ReactElement} from 'react';
 import {withRouter, RouteComponentProps} from 'react-router-dom';
 import cx from 'classnames';
 
+import Alert from 'components/utils/AlertComponent';
 import ProductsForm from './productsForm';
 import OrderForm from './orderForm';
 import {State} from 'state/cart/types';
@@ -12,6 +13,8 @@ export type Props = {
     cartItemsCount: number;
     cartContents: State['contents'];
     totalPrice: number;
+    makeOrder: ({}) => void;
+    successMessage: string;
 } & RouteComponentProps;
 
 class OrderPage extends Component<Props> {
@@ -20,17 +23,15 @@ class OrderPage extends Component<Props> {
     }
 
     render(): ReactElement {
-        const {cartContents, totalPrice} = this.props;
+        const {cartContents, totalPrice, successMessage} = this.props;
 
         return (
             <div className='m-4'>
                 <h3>Order page</h3>
 
-                <div className='mb-4'>
-                    <i>This page is under active development, Order Form is not working yet. Changes coming soon</i>
-                </div>
+                <Alert text={successMessage} />
 
-                {this.isEmptyCart && <div className='mb-3'>
+                {this.isEmptyCart && <div className='mb-3 text-center'>
                     Cart is Empty
                 </div>}
 
@@ -46,15 +47,15 @@ class OrderPage extends Component<Props> {
                     </div>
                 </div>
 
-                {this.isEmptyCart && <small>To unblock order form, please choose some product first</small>}
-
                 <div className={cx('col-lg-6 offset-lg-3 col-md-8 offset-md-2 mt-5 p-4', styles.formContainer)}>
-                    <OrderForm disabled={this.isEmptyCart} />
+                    <OrderForm disabled={this.isEmptyCart} {...this.props} />
                 </div>
 
-                <div>
-                    <button className={'btn btn-primary'} onClick={() => this.props.history.goBack()}>Back</button>
-                </div>
+                {this.isEmptyCart && (
+                    <div className='text-center mt-3'>
+                        <small>To unblock order form, please choose some product first</small>
+                    </div>
+                )}
             </div>
         );
     }

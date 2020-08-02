@@ -32,8 +32,7 @@ const insertOrUpdateProducts = (product: Product) => ({
 const errorRequest = (error): ErrorRequest => ({
     type: Actions.errorRequestProducts,
     payload: {
-        error,
-        isLoading: false
+        error
     }
 });
 

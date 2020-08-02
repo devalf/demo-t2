@@ -4,18 +4,21 @@ import cx from 'classnames';
 
 import {TextInput, TextArea} from 'components/utils/Form';
 import {composeValidators, required, email} from 'utils/validation';
+import {Props as ComponentProps} from './component';
 
 type Props = {
     disabled?: boolean;
-};
+} & Pick<ComponentProps, 'makeOrder'>;
 
 export default class OrderForm extends Component<Props> {
-    render(): ReactElement {
-        const {disabled} = this.props;
+    handleSubmit = (values) => {
+        this.props.makeOrder(values);
+    };
 
+    render(): ReactElement {
         return (
-            <Formik initialValues={{}} onSubmit={((values) => console.log(values))}>
-                <Form className={cx({'disabled': disabled})}>
+            <Formik initialValues={{}} onSubmit={this.handleSubmit}>
+                <Form className={cx({'disabled': this.props.disabled})}>
                     <Field
                         name='first_name'
                         label='First name *'
@@ -45,7 +48,7 @@ export default class OrderForm extends Component<Props> {
                     <button
                         type='submit'
                         className='btn btn-md btn-block btn-secondary mt-5 mb-4'
-                        onClick={() => console.log('order action TBD')}>
+                    >
                         Submit
                     </button>
                 </Form>

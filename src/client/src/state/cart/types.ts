@@ -1,3 +1,5 @@
+import {Requesting} from 'state/utils/reducers/types';
+
 export type CartItem = {
     title: string;
     price: string | number;
@@ -5,29 +7,46 @@ export type CartItem = {
     count: number;
 };
 
-export type Payload = {
+export type IDType = {
     id: string;
 };
+
+export type UpdatePayload = IDType & {
+    count: number;
+}
 
 export enum Actions {
     addToCart = 'ADD_TO_CART',
     removeFromCart = 'REMOVE_FROM_CART',
-    updateItemInCart = 'UPDATE_ITEM_IN_CART'
+    updateItemInCart = 'UPDATE_ITEM_IN_CART',
+    startOrderRequest = 'START_ORDER_REQUEST',
+    successOrderRequest = 'SUCCESS_ORDER_REQUEST',
+    errorOrderRequest = 'ERROR_ORDER_REQUEST',
+    resetCartSuccessMessage = 'RESET_CART_SUCCESS_MESSAGE'
 }
 
 export type AddToCart = {
     type: Actions.addToCart;
-    payload: Payload;
+    payload: IDType;
 };
 
 export type RemoveFromCart = {
     type: Actions.removeFromCart;
-    payload: Payload;
+    payload: IDType;
 };
 
 export type UpdateItemInCart = {
     type: Actions.updateItemInCart,
-    payload: Payload & {count: number};
+    payload: UpdatePayload;
+};
+
+export type StartOrderRequest = {
+    type: Actions.startOrderRequest
+};
+
+export type ErrorOrderRequest = {
+    type: Actions.errorOrderRequest;
+    payload: Requesting;
 };
 
 export type State = {

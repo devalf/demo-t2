@@ -22,3 +22,9 @@ export const selectCartContentsTotalPrice = createSelector(
             return acc + (Number(price) * count);
         }, 0)
 );
+
+
+export const selectSuccessMessage = createSelector(
+    selectCartState,
+    ({successMessage}) => successMessage
+);
