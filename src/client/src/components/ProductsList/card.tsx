@@ -42,6 +42,7 @@ const ProductCard = (props: Props) => {
                     </>}
                     <div className={'mt-2'}>
                         <small className={cx('font-italic', styles.registered)}>
+                            {/* TODO replace moment for another util */}
                             Registered: {moment(registered).format(standardDate)}
                         </small>
                     </div>

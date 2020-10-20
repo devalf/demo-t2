@@ -1,4 +1,4 @@
-FROM node:10-alpine as build-stage
+FROM node:13.13.0-alpine as build-stage
 
 ARG PORT_CLIENT
 ARG PORT_API_SERVER
