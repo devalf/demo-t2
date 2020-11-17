@@ -1,4 +1,5 @@
-import {createReducer} from 'state/utils/createReducer';
+import {createReducer} from '@reduxjs/toolkit';
+
 import {normalizeData} from 'state/utils/normalize';
 import {initialState} from './initialState';
 import {requestStartReducer, requestErrorReducer} from 'state/utils/reducers/requesting';

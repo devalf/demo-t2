@@ -1,4 +1,5 @@
-import {createReducer} from 'state/utils/createReducer';
+import {createReducer} from '@reduxjs/toolkit';
+
 import {Actions} from './types';
 import {modal as initialState} from './initialState';
 import {State} from './types';

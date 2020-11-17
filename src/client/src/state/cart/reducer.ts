@@ -1,8 +1,8 @@
 import {omit} from 'lodash';
+import {createReducer} from '@reduxjs/toolkit';
 
 import {State, Actions} from './types';
 import {cart as initialState} from './initialState';
-import {createReducer} from 'state/utils/createReducer';
 import {requestErrorReducer, requestStartReducer} from 'state/utils/reducers/requesting';
 
 const addToCart = (state, {payload: {id, title, price, picture}}): State => ({

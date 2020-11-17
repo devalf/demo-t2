@@ -17,12 +17,8 @@ const config = {
         rules: [
             {
                 test: /\.(t|j)sx?$/,
+                include: path.resolve(__dirname, 'src'),
                 loader: 'ts-loader'
-            },
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                loader: 'source-map-loader'
             },
             {
                 test: /([\\/])styles\.(s)?css$/,

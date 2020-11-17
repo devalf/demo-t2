@@ -1,8 +1,19 @@
-import {createStore, applyMiddleware, compose} from 'redux';
-import thunk from 'redux-thunk';
+import {configureStore} from '@reduxjs/toolkit';
 
-import {reducers} from './reducers';
+import rootReducer from './reducers';
 
-const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose || compose;
+const store = configureStore({
+    reducer: rootReducer
+});
 
-export const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+if (process.env.NODE_ENV === 'development' && module.hot) {
+    module.hot.accept('./reducers', () => {
+        const newRootReducer = require('./reducers').default;
+
+        store.replaceReducer(newRootReducer);
+    });
+}
+
+export type AppDispatch = typeof store.dispatch
+
+export default store;

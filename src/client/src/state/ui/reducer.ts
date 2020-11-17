@@ -1,4 +1,5 @@
-import {createReducer} from 'state/utils/createReducer';
+import {createReducer} from '@reduxjs/toolkit';
+
 import {actionTypes} from './actions';
 import {ui as initialState} from './initialState';
 

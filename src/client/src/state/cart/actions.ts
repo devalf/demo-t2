@@ -1,4 +1,5 @@
 import {Dispatch} from 'redux';
+import {omit} from 'lodash';
 
 import {
     Actions, IDType, UpdatePayload, AddToCart, RemoveFromCart, UpdateItemInCart, StartOrderRequest, ErrorOrderRequest
@@ -11,7 +12,9 @@ import {ALERT_TIMEOUT} from 'constants/timers';
 
 export const addToCart = (payload: IDType): AddToCart => ({
     type: Actions.addToCart,
-    payload
+    payload: {
+        ...omit(payload, 'addToCart')
+    }
 });
 
 export const removeFromCart = (payload: IDType): RemoveFromCart => ({
