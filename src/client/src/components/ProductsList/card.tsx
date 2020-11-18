@@ -7,13 +7,14 @@ import {Product} from 'state/productsData/types';
 import {standardDate} from 'constants/formatTime';
 import {buildLinkToProductPage} from 'constants/routes';
 import {Props as ComponentProps} from './component';
+import {getRandomImage} from 'utils/randomImage';
 
 import styles from './styles.scss';
 
 type Props = Product & Pick<ComponentProps, 'addToCart'>;
 
 const ProductCard = (props: Props) => {
-    const {about, company, id, picture, price, registered, tags, title, addToCart} = props;
+    const {about, company, id, price, registered, tags, title, addToCart} = props;
 
     const onAddToCartClick = () => addToCart(props);
 
@@ -25,7 +26,8 @@ const ProductCard = (props: Props) => {
                 </div>
                 <div className='card-body'>
                     <img
-                        src={picture}
+                        /* get random local image instead props.picture for performance purposes */
+                        src={getRandomImage()}
                         alt={`${title} product pic`}
                         className={cx('img-thumbnail mb-2 mx-auto d-block', styles.productImg)}
                     />

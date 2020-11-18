@@ -67,12 +67,13 @@ const config = {
                 }]
             },
             {
-                test: /\.png$/,
+                test: /\.(png|jpe?g|gif)$/i,
                 use: [
                     {
-                        loader: 'url-loader',
+                        loader: 'file-loader',
                         options: {
-                            mimetype: 'image/png'
+                            name: '[name].[ext]',
+                            outputPath: 'images/'
                         }
                     }
                 ]
@@ -92,7 +93,8 @@ const config = {
             'utils': path.resolve(__dirname, 'src/utils'),
             'configs': path.resolve(__dirname, 'src/configs'),
             'constants': path.resolve(__dirname, 'src/constants'),
-            'state': path.resolve(__dirname, 'src/state')
+            'state': path.resolve(__dirname, 'src/state'),
+            'images': path.resolve(__dirname, 'src/images')
         }
     },
     devtool: 'cheap-module-eval-source-map',
