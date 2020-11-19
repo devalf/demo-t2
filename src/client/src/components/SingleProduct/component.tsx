@@ -1,22 +1,23 @@
-import React, {useEffect, ReactElement} from 'react';
+import React, {ReactElement, useEffect} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 
 import {Product} from 'state/productsData/types';
 import Loader from 'components/utils/Loader';
 import LinkButton from 'components/utils/LinkButton/component';
-import Rating, {MIN_RATING_VALUE, MAX_RATING_VALUE} from 'components/utils/Rating';
+import Rating, {MAX_RATING_VALUE, MIN_RATING_VALUE} from 'components/utils/Rating';
 import {orderPageRoute} from 'constants/routes';
+import {RequestStatus} from 'types/http';
 
 import styles from './styles.scss';
 
 type Props = {
     product: Product;
     fetchProduct: (id: string) => void;
-    isLoading: boolean;
+    requestStatus: RequestStatus;
     addToCart: (product: Product) => void;
 } & RouteComponentProps<{id: string}>;
 
-const SingleProduct = ({product, fetchProduct, match, isLoading, addToCart}: Props): ReactElement => {
+const SingleProduct = ({product, fetchProduct, match, requestStatus, addToCart}: Props): ReactElement => {
     useEffect(() => {
         fetchProduct(match.params.id);
     }, []);
@@ -25,7 +26,7 @@ const SingleProduct = ({product, fetchProduct, match, isLoading, addToCart}: Pro
 
     return (
         <div className='p-3'>
-            {(isLoading && !product) && <Loader />}
+            {(requestStatus === RequestStatus.Requesting && !product) && <Loader />}
 
             {product && <>
                 <div>

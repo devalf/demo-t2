@@ -6,7 +6,7 @@ import {
     selectCartItemsCount,
     selectCartContents,
     selectCartContentsTotalPrice,
-    selectIsLoading,
+    selectRequestStatus,
     selectSuccessMessage,
     selectErrorMessage
 } from 'state/cart/selectors';
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
     cartContents: selectCartContents(state),
     totalPrice: selectCartContentsTotalPrice(state),
     successMessage: selectSuccessMessage(state),
-    isLoading: selectIsLoading(state),
+    requestStatus: selectRequestStatus(state),
     error: selectErrorMessage(state)
 });
 

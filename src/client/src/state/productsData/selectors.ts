@@ -1,5 +1,7 @@
 import {createSelector} from 'reselect';
 
+import {selectRequestStatus as selectRequestStatusProp} from 'state/utils/selectors';
+
 const selectProductsData = (state) => state.productsData;
 
 const selectResult = createSelector(
@@ -31,9 +33,9 @@ export const selectProduct = createSelector(
     (entitiesMap, id) => id && entitiesMap?.[id]
 );
 
-export const selectIsLoading = createSelector(
+export const selectRequestStatus = createSelector(
     selectProductsData,
-    ({isLoading}) => isLoading
+    selectRequestStatusProp
 );
 
 export const selectTotalCount = createSelector(

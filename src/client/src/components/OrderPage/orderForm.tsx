@@ -1,14 +1,15 @@
 import React, {Component, ReactElement} from 'react';
-import {Formik, Field, Form} from 'formik';
+import {Field, Form, Formik} from 'formik';
 import cx from 'classnames';
 
-import {TextInput, TextArea} from 'components/utils/Form';
-import {composeValidators, required, email} from 'utils/validation';
+import {TextArea, TextInput} from 'components/utils/Form';
+import {composeValidators, email, required} from 'utils/validation';
 import {Props as ComponentProps} from './component';
+import {RequestStatus} from 'types/http';
 
 type Props = {
     disabled?: boolean;
-} & Pick<ComponentProps, 'makeOrder' | 'isLoading'>;
+} & Pick<ComponentProps, 'makeOrder' | 'requestStatus'>;
 
 export default class OrderForm extends Component<Props> {
     handleSubmit = (values) => {
@@ -47,7 +48,7 @@ export default class OrderForm extends Component<Props> {
                         type='submit'
                         className={cx(
                             'btn btn-md btn-block btn-secondary mt-5 mb-4',
-                            {'disabled': this.props.isLoading}
+                            {'disabled': this.props.requestStatus === RequestStatus.Requesting}
                         )}
                     >
                         Submit

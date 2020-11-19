@@ -1,6 +1,7 @@
 import {createSelector} from 'reselect';
 
 import {CartItem} from './types';
+import {selectRequestStatus as selectRequestStatusProp} from 'state/utils/selectors';
 
 const selectCartState = (state) => state.cart;
 
@@ -23,9 +24,9 @@ export const selectCartContentsTotalPrice = createSelector(
         }, 0)
 );
 
-export const selectIsLoading = createSelector(
+export const selectRequestStatus = createSelector(
     selectCartState,
-    ({isLoading}) => isLoading
+    selectRequestStatusProp
 );
 
 export const selectSuccessMessage = createSelector(

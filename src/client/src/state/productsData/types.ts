@@ -1,4 +1,5 @@
 import {Requesting} from 'state/utils/reducers/types';
+import {RequestStatus} from 'types/http';
 
 export enum Actions {
     startRequestProducts = 'START_REQUEST_PRODUCTS',
@@ -49,12 +50,13 @@ export type ErrorRequest = {
 };
 
 export type State = {
-    isLoading: boolean;
     error: string;
     filters: {
         offset: number;
         limit: number;
-    }
+    };
+    requestStatus: RequestStatus;
+    totalCount: number;
 };
 
 export type FetchProductsOptions = {

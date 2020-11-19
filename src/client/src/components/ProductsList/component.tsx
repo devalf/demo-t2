@@ -5,11 +5,12 @@ import Loader from 'components/utils/Loader';
 import LoadMore from 'components/utils/LoadMore';
 import {ProductNormalized} from 'state/productsData/types';
 import {fetchProducts, resetProductsState} from 'state/productsData/actions';
+import {RequestStatus} from 'types/http';
 
 export type Props = {
     setUI: () => void;
     fetchProducts: typeof fetchProducts;
-    isLoading: boolean;
+    requestStatus: RequestStatus
     products: [];
     totalCount: number;
     resetProductsState: typeof resetProductsState;
@@ -26,7 +27,8 @@ export default class ProductsList extends Component<Props> {
     }
 
     render(): ReactNode {
-        const {products, isLoading, totalCount, addToCart} = this.props;
+        const {products, requestStatus, totalCount, addToCart} = this.props;
+        const isLoading = requestStatus === RequestStatus.Requesting;
         const showLoading = !products.length && isLoading;
 
         return <>

@@ -5,6 +5,7 @@ import {initialState} from './initialState';
 import {requestStartReducer, requestErrorReducer} from 'state/utils/reducers/requesting';
 import {Actions} from './types';
 import {ENTITIES_OFFSET} from 'constants/fetchOptions';
+import {RequestStatus} from 'types/http';
 
 const productsNormalized = normalizeData({products: []});
 const initialProductsState = {
@@ -18,7 +19,7 @@ const insertProducts = (state, {payload: {products, totalCount, isNew}}) => {
     return {
         ...state,
         totalCount,
-        isLoading: false,
+        requestStatus: RequestStatus.Success,
         entities: {
             products: {
                 ...state.entities.products,
@@ -42,7 +43,7 @@ const insertOrUpdateProduct = (state, {payload: {product}}) => {
 
     return {
         ...state,
-        isLoading: false,
+        requestStatus: RequestStatus.Success,
         entities: {
             products: {
                 ...state.entities.products,

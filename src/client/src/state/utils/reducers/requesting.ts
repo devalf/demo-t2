@@ -1,10 +1,12 @@
+import {RequestStatus} from 'types/http';
+
 export const requestStartReducer = (state) => ({
     ...state,
-    isLoading: true
+    requestStatus: RequestStatus.Requesting
 });
 
 export const requestErrorReducer = (state, {payload: {error: err}}) => ({
     ...state,
-    isLoading: false,
+    requestStatus: RequestStatus.Error,
     error: err?.message
 });

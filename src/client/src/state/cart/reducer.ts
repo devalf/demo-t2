@@ -4,6 +4,7 @@ import {createReducer} from '@reduxjs/toolkit';
 import {State, Actions} from './types';
 import {cart as initialState} from './initialState';
 import {requestErrorReducer, requestStartReducer} from 'state/utils/reducers/requesting';
+import {RequestStatus} from 'types/http';
 
 const addToCart = (state, {payload: {id, title, price, picture}}): State => ({
     ...state,
@@ -45,7 +46,7 @@ const updateCart = (state, {payload: {id, count}}) => {
 const makeOrderSuccess = (state, {payload: {message}}) => {
     return {
         ...state,
-        isLoading: false,
+        requestStatus: RequestStatus.Success,
         contents: {},
         successMessage: message,
         error: undefined

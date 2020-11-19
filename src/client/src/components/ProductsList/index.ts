@@ -2,12 +2,12 @@ import {connect} from 'react-redux';
 
 import Component from './component';
 
-import {selectProducts, selectIsLoading, selectTotalCount} from 'state/productsData/selectors';
+import {selectProducts, selectRequestStatus, selectTotalCount} from 'state/productsData/selectors';
 import {fetchProducts} from 'state/productsData/actions';
 import {addToCart} from 'state/cart/actions';
 
 const mapStateToProps = (state) => ({
-    isLoading: selectIsLoading(state),
+    requestStatus: selectRequestStatus(state),
     products: selectProducts(state),
     totalCount: selectTotalCount(state)
 });

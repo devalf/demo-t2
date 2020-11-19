@@ -93,6 +93,7 @@ const config = {
             'utils': path.resolve(__dirname, 'src/utils'),
             'configs': path.resolve(__dirname, 'src/configs'),
             'constants': path.resolve(__dirname, 'src/constants'),
+            'types': path.resolve(__dirname, 'src/types'),
             'state': path.resolve(__dirname, 'src/state'),
             'images': path.resolve(__dirname, 'src/images')
         }

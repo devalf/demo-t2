@@ -6,6 +6,7 @@ import Alert from 'components/utils/AlertComponent';
 import ProductsForm from './productsForm';
 import OrderForm from './orderForm';
 import {State} from 'state/cart/types';
+import {RequestStatus} from 'types/http';
 
 import styles from './styles.scss';
 
@@ -14,7 +15,7 @@ export type Props = {
     cartContents: State['contents'];
     totalPrice: number;
     makeOrder: ({}) => void;
-    isLoading: boolean;
+    requestStatus: RequestStatus;
     successMessage: string;
     error: string;
 } & RouteComponentProps;
