@@ -6,11 +6,14 @@ import CartItem from 'components/utils/CartItem';
 import {Props as componentProps} from './component';
 
 type Props = Pick<componentProps, 'cartContents'>;
+type ProductsFormValues = {
+    [id: string]: number;
+};
 
 export default class ProductsForm extends Component<Props> {
     getProductEntityName = (id: string): string => `product_id:${id}`;
 
-    getInitialValues = () => {
+    getInitialValues = (): ProductsFormValues => {
         const {cartContents} = this.props;
         const initValuesMap = {};
 

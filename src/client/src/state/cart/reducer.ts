@@ -61,6 +61,8 @@ const resetCartSuccessMessage = (state) => {
 };
 
 export const cart = createReducer(initialState, {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     [Actions.addToCart]: addToCart,
     [Actions.removeFromCart]: removeFromCart,
     [Actions.updateItemInCart]: updateCart,

@@ -9,6 +9,8 @@ import API from 'utils/API';
 import {extractDataFromRequest} from 'utils/dataHandlers';
 import {order} from 'constants/endpoints';
 import {ALERT_TIMEOUT} from 'constants/timers';
+import {OrderFormFields} from 'types/orderFrom';
+import {AppState} from 'types/state';
 
 export const addToCart = (payload: IDType): AddToCart => ({
     type: Actions.addToCart,
@@ -49,8 +51,8 @@ const resetCartSuccessMessage = () => ({
     type: Actions.resetCartSuccessMessage
 });
 
-export const makeOrder = (formData) =>
-    async (dispatch: Dispatch, getState): Promise<void> => {
+export const makeOrder = (formData: OrderFormFields) =>
+    async (dispatch: Dispatch, getState: () => AppState): Promise<void> => {
         dispatch(startOrderRequest());
 
         const cartContents = selectCartContents(getState());

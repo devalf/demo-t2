@@ -13,7 +13,7 @@ import styles from './styles.scss';
 
 type Props = Product & Pick<ComponentProps, 'addToCart'>;
 
-const ProductCard = (props: Props) => {
+const ProductCard = (props: Props): React.ReactElement => {
     const {about, company, id, price, registered, tags, title, addToCart} = props;
 
     const onAddToCartClick = () => addToCart(props);

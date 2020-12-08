@@ -1,11 +1,21 @@
 import {normalize, schema} from 'normalizr';
 
 export type Normalized = {
-    entities: any;
-    result: any;
+    entities: {
+        // TODO find out correct type here
+        // eslint-disable-next-line @typescript-eslint/ban-types
+        [key: string]: object;
+    };
+    result: {
+        [key: string]: string[];
+    };
 };
 
-export const normalizeData = (data): Normalized => {
+type Data = {
+    [key: string]: unknown[];
+};
+
+export const normalizeData = (data: Data): Normalized => {
     const key = Object.keys(data).toString();
     const standardSchema = new schema.Entity(key);
     const Schema = {[key]: [standardSchema]};

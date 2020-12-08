@@ -1,4 +1,4 @@
-import React, {ButtonHTMLAttributes} from 'react';
+import React, {ButtonHTMLAttributes, ReactElement} from 'react';
 import cx from 'classnames';
 import {RouteComponentProps} from 'react-router-dom';
 import {withRouter} from 'react-router';
@@ -9,7 +9,7 @@ type Props = {
     onButtonClick?: (e: Event) => void;
 } & ButtonHTMLAttributes<HTMLButtonElement> & RouteComponentProps;
 
-const LinkButton = ({className, children, type, onButtonClick, to, history}: Props) => {
+const LinkButton = ({className, children, type, onButtonClick, to, history}: Props): ReactElement => {
     const onClickHandler = (e) => {
         onButtonClick && onButtonClick(e);
         history.push(to);

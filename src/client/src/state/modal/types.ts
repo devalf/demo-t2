@@ -5,7 +5,6 @@ export enum Actions {
 
 export type PayloadOpen = {
     id: string;
-    data?: any;
 };
 
 export type OpenModal = {

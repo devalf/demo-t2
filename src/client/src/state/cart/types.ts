@@ -1,4 +1,5 @@
 import {Requesting} from 'state/utils/reducers/types';
+import {RequestStatus} from 'types/http';
 
 export type CartItem = {
     title: string;
@@ -52,5 +53,8 @@ export type ErrorOrderRequest = {
 export type State = {
     contents: {
         [key: string]: CartItem
-    }
+    };
+    requestStatus: RequestStatus;
+    successMessage?: string;
+    error?: string;
 };

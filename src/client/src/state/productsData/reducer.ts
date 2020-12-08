@@ -59,6 +59,8 @@ const insertOrUpdateProduct = (state, {payload: {product}}) => {
 };
 
 export const productsData = createReducer(initialProductsState, {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     [Actions.startRequestProducts]: requestStartReducer,
     [Actions.successRequestProducts]: insertProducts,
     [Actions.errorRequestProducts]: requestErrorReducer,

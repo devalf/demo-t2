@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, ReactElement} from 'react';
 import cx from 'classnames';
 
 import styles from './styles.scss';
@@ -9,7 +9,7 @@ type Props = {
     isLoading: boolean;
 };
 
-const LoadMore = ({onClick, disabled, isLoading}: Props) => {
+const LoadMore = ({onClick, disabled, isLoading}: Props): ReactElement => {
     const [isLoadingByClick, setIsLoadingByClick] = useState(false);
 
     const onClickHandler = () => {

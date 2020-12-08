@@ -8,6 +8,7 @@ import {
     FetchProductsOptions, ResetProducts, Product
 } from './types';
 import {ENTITIES_OFFSET} from 'constants/fetchOptions';
+import {AppState} from '../../types/state';
 
 const startRequestProducts = (): StartRequest => ({
     type: Actions.startRequestProducts
@@ -45,7 +46,7 @@ const startRequestProduct = (): StartRequest => ({
 });
 
 export const fetchProducts = (options?: FetchProductsOptions) =>
-    async (dispatch: Dispatch, getState): Promise<void> => {
+    async (dispatch: Dispatch, getState: () => AppState): Promise<void> => {
         dispatch(startRequestProducts());
 
         const {productsData: {filters: filtersSate}} = getState();

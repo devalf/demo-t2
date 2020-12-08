@@ -22,7 +22,7 @@ export default class ProductsList extends Component<Props> {
         this.props.fetchProducts();
     }
 
-    fetchMoreProducts = () => {
+    fetchMoreProducts = (): void => {
         this.props.fetchProducts({loadMore: true});
     }
 

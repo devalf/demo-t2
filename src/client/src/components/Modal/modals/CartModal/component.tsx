@@ -12,7 +12,7 @@ type Props = {
     toggle: () => void;
 };
 
-const CartModal = ({cartContents, cartItemsCount, toggle}: Props) => {
+const CartModal = ({cartContents, cartItemsCount, toggle}: Props): React.ReactElement => {
     return (
         <>
             <ModalHeader toggle={toggle}>

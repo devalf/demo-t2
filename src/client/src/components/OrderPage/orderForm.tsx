@@ -6,19 +6,20 @@ import {TextArea, TextInput} from 'components/utils/Form';
 import {composeValidators, email, required} from 'utils/validation';
 import {Props as ComponentProps} from './component';
 import {RequestStatus} from 'types/http';
+import {OrderFormFields} from 'types/orderFrom';
 
 type Props = {
     disabled?: boolean;
 } & Pick<ComponentProps, 'makeOrder' | 'requestStatus'>;
 
 export default class OrderForm extends Component<Props> {
-    handleSubmit = (values) => {
+    handleSubmit = (values: OrderFormFields): void => {
         this.props.makeOrder(values);
     };
 
     render(): ReactElement {
         return (
-            <Formik initialValues={{}} onSubmit={this.handleSubmit}>
+            <Formik initialValues={{} as OrderFormFields} onSubmit={this.handleSubmit}>
                 <Form className={cx({'disabled': this.props.disabled})}>
                     <Field
                         name='first_name'
