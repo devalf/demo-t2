@@ -1,15 +1,15 @@
 FROM node:18-alpine
 
-RUN mkdir -p /usr/src/client-app
+RUN mkdir -p /usr/src/client-app-mx
 
-WORKDIR /usr/src/client-app
+WORKDIR /usr/src/client-app-mx
 
 COPY package*.json ./
 
-RUN npm i --silent
+RUN npm i --legacy-peer-deps
 
 COPY . .
 
-EXPOSE $PORT_CLIENT
+EXPOSE $PORT_CLIENT_MX
 
 CMD ["npm", "start"]

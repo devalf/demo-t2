@@ -80,7 +80,8 @@ module.exports = (env, argv) => {
             host: '0.0.0.0',
             port: PORT_CLIENT,
             hot: true,
-            historyApiFallback: true
+            historyApiFallback: true,
+            allowedHosts: 'all'
         },
         plugins: [
             // new CopyPlugin({

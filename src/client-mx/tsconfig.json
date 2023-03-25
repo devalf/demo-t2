@@ -17,8 +17,7 @@
     "types": [
       "react/next",
       "react-dom/next",
-      "node",
-      "webpack-env"
+      "node"
     ]
     /* Type declaration files to be included in compilation. */,
     "module": "esNext"

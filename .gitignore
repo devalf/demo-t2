@@ -3,6 +3,7 @@
 node_modules
 src/client/node_modules
 src/client-mx/node_modules
+src/client-mx/dist
 src/server/node_modules
 src/client/dev
 
