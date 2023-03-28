@@ -15,7 +15,6 @@ module.exports = (env, argv) => {
     return ({
         mode: isDevelopment ? 'development' : 'production',
         entry: [
-            'react-hot-loader/patch',
             './src/index.tsx'
         ],
         output: {
@@ -79,7 +78,6 @@ module.exports = (env, argv) => {
             },
             host: '0.0.0.0',
             port: PORT_CLIENT,
-            hot: true,
             historyApiFallback: true,
             allowedHosts: 'all'
         },
@@ -96,7 +94,14 @@ module.exports = (env, argv) => {
                 analyzerMode: 'static',
                 openAnalyzer: false
             }),
-            new CleanWebpackPlugin()
+            new CleanWebpackPlugin(),
+            new webpack.DefinePlugin({
+                process: {
+                    env: {
+                        MODE: JSON.stringify(argv.mode)
+                    }
+                }
+            })
         ],
         resolve: {
             extensions: [

@@ -1,7 +1,10 @@
 import React, {FC} from 'react';
+import {Layout} from './components';
 
 const App: FC = () => {
-    return (<div>Hello world!!!</div>);
+    return (
+        <Layout/>
+    );
 };
 
 export default App;

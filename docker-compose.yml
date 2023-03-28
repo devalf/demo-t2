@@ -25,7 +25,7 @@ services:
       context: ./src/client-mx
       dockerfile: Dockerfile
       args:
-        - PORT_CLIENT=PORT_CLIENT_MX
+        - PORT_CLIENT=$PORT_CLIENT_MX
         - PORT_API_SERVER=$PORT_API_SERVER
     image: devalf/client_mx
     environment:
