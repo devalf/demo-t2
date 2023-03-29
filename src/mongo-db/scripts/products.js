@@ -20,7 +20,8 @@ const products = [
             'dolore',
             'veniam'
         ],
-        'price': 239
+        'price': 239,
+        'product_condition': 'used'
     },
     {
         'guid': '24cba56d-c267-4a87-8cb9-31d98e7b9e5c',
@@ -59,7 +60,8 @@ const products = [
             'magna',
             'cillum'
         ],
-        'price': 204
+        'price': 204,
+        'product_condition': 'new'
     },
     {
         'guid': '77a65ed2-3a9e-41bb-bb82-032406f560a5',

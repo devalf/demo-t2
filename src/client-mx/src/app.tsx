@@ -1,9 +1,15 @@
 import React, {FC} from 'react';
+import {QueryClient, QueryClientProvider} from 'react-query';
+
 import {Layout} from './components';
+
+const queryClient = new QueryClient();
 
 const App: FC = () => {
     return (
-        <Layout/>
+        <QueryClientProvider client={queryClient}>
+            <Layout/>
+        </QueryClientProvider>
     );
 };
 
