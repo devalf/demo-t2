@@ -73,7 +73,8 @@
     ],
     "newline-before-return": "error",
     "no-console": 0,
-    "@typescript-eslint/no-var-requires": 0
+    "@typescript-eslint/no-var-requires": 0,
+    "sort-imports": "warn"
   },
   "globals": {
     "Atomics": "readonly",

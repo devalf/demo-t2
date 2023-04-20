@@ -1,8 +1,11 @@
 import React from 'react';
+import Box from '@mui/material/Box';
+
+import {ProductsList} from '../components';
 import {useProducts} from '../state';
 
 export const Home: React.FC = () => {
-    const {data, error, isLoading} = useProducts();
+    const {data: products, error, isLoading} = useProducts();
 
     if (isLoading) {
         return <>Loading...</>;
@@ -14,7 +17,9 @@ export const Home: React.FC = () => {
         return null;
     }
 
-    console.log(data);
-
-    return (<div>Home page</div>);
+    return (
+        <Box>
+            <ProductsList products={products}/>
+        </Box>
+    );
 };
