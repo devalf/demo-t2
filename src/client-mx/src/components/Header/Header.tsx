@@ -5,8 +5,16 @@ import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import {Link} from '@mui/material';
+import {useInjection} from '../../bootstrap/ioc/useInjection';
+import {IStoreExampleTwo} from '../../store/interfaces';
+import {DependencyType} from '../../bootstrap/ioc/DependencyType';
 
 export const Header: React.FC = () => {
+    const storeExampleTwo = useInjection<IStoreExampleTwo>(DependencyType.StoreExampleTwo);
+
+    const stingFromStore = storeExampleTwo.getStringFromStoreExampleOne();
+    console.log('log by `storeExampleTwo` store method, used injection another store:', stingFromStore);
+
     return (
         <AppBar position="static">
             <Container maxWidth="xl">

@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     return ({
         mode: isDevelopment ? 'development' : 'production',
         entry: [
-            './src/index.tsx'
+            './src/index.ts'
         ],
         output: {
             path: path.resolve(__dirname, 'dist'),
