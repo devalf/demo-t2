@@ -16,6 +16,21 @@ services:
       - ./src/client:/usr/src/client-app
       - /usr/src/client-app/node_modules
 
+  client-mx:
+    container_name: client_dev_mx
+    build:
+      context: ./src/client-mx
+      dockerfile: Dockerfile.dev
+    image: devalf/client_dev_mx
+    environment:
+      PORT_CLIENT: ${PORT_CLIENT_MX}
+      PORT_API_SERVER: ${PORT_API_SERVER}
+    ports:
+      - ${PORT_CLIENT_MX}:${PORT_CLIENT_MX}
+    volumes:
+      - ./src/client-mx:/usr/src/client-app-mx
+      - /usr/src/client-app-mx/node_modules
+
   server:
     container_name: server_dev
     build:

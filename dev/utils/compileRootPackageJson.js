@@ -25,7 +25,7 @@ function getDependencies(obj) {
 
 (async () => {
     const base = await getContent('./package.base.json');
-    const client = await getContent('./src/client/package.json');
+    const client = await getContent('./src/client-mx/package.json');
     const server = await getContent('./src/server/package.json');
 
     const clientDependencies = getDependencies(client);
