@@ -1,1 +1,3 @@
-export const selectRequestStatus = ({requestStatus}: {requestStatus: string}): string => requestStatus;
+import {RequestStatus} from '../../../types/http';
+
+export const selectRequestStatus = ({requestStatus}: {requestStatus: RequestStatus}): RequestStatus => requestStatus;

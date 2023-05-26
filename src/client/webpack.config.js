@@ -18,7 +18,10 @@ const config = {
             {
                 test: /\.(t|j)sx?$/,
                 include: path.resolve(__dirname, 'src'),
-                loader: 'ts-loader'
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: true
+                }
             },
             {
                 test: /([\\/])styles\.(s)?css$/,
